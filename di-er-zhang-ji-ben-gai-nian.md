@@ -42,7 +42,7 @@ producers:
     total:             0.0000 UOS
 ```
 
-一个账户的基本信息包含权限组成、内存信息、cpu信息、net信息、余额信息、投票信息。 
+一个账户的基本信息包含权限组成、内存信息、cpu信息、net信息、余额信息、投票信息。
 
 ### 2.1.1 权限组成
 
@@ -58,11 +58,11 @@ UOS的账户默认有两个权限：owner和active。拥有对应权限的私钥
 > active 1: 1 UOS5A4sYXU6SA5kyKjbu76r9xapgrzotjhLEgPSZzDzMBJpw1559Y
 
 active的后的第一个“１”是**权限阈值，公钥前面的“１”是该公钥的权重，要解锁某一权限，需要权限私钥对应的权重之和要能大于或等于权限阈值。关于权限更多介绍，可以跳转到**[**多重签名章节**](https://mastering-uos.gitbook.io/mastering-uos/di-er-zhang-ji-ben-gai-nian#24-duo-zhong-qian-ming)**。**  
-内存信息、cpu信息、net信息和投票信息将在以后的章节中介绍。 
+内存信息、cpu信息、net信息和投票信息将在以后的章节中介绍。
 
 ## 2.2 交易
 
-UOS中，任何一个操作最后均归结为合约的调用，**交易实际是由用户授权的一个或多个合约调用的组合。** 
+UOS中，任何一个操作最后均归结为合约的调用，**交易实际是由用户授权的一个或多个合约调用的组合。**
 
 ### 2.2.1 交易组成
 
@@ -112,7 +112,7 @@ ref\_block\_prefix：交易的参考区块的hash前缀
 max\_net\_usage\_words：交易的net使用上限，为０不设限制  
 max\_cpu\_usage\_ms：交易的cpu使用上限，为０不受限制  
 delay\_sec：交易的延迟时间，为０代表非延迟交易  
-context\_free\_actions：上下文无关的行为。 
+context\_free\_actions：上下文无关的行为。
 
 ### 2.2.3 actions
 
@@ -132,7 +132,7 @@ uosiopokerbp用户使用自己的active权限，调用是uosio.token合约的tra
 
 此交易的签名。需要与actions声明的调用权限一致，如果声明了uosiopokerbp的active权限，就需要用uosiopokerbp账号active权限的权限私钥进行签名。  
 在区块链浏览器上查看这条交易：  
-[https://explorer.uosio.org/transactions/5513440/366616970c7995a935e3263571bd543937a6512cc358c66a91ed449fbb0dcd21](https://explorer.uosio.org/transactions/5513440/366616970c7995a935e3263571bd543937a6512cc358c66a91ed449fbb0dcd21) 
+[https://explorer.uosio.org/transactions/5513440/366616970c7995a935e3263571bd543937a6512cc358c66a91ed449fbb0dcd21](https://explorer.uosio.org/transactions/5513440/366616970c7995a935e3263571bd543937a6512cc358c66a91ed449fbb0dcd21)
 
 ## 2.3 内存、cpu、net
 
@@ -184,17 +184,22 @@ UOS的内存容量现为８G,这意味这每个UOS节点程序要求自己计算
 **UOS的内存**是根据bancor协议进行自动计费的。  
 公式如下：
 
-> 得到的容量\(Byte\) = \(当前剩余的容量  _付款的UOS\)/\(池中的UOS + 付款的UOS\) 得到的UOS = \(池中的UOS_  卖出的RAM\) / \(剩余的容量 ＋ 卖出的RAM\)
+> 得到的容量\(Byte\) = \(当前剩余的容量 _付款的UOS\)/\(池中的UOS + 付款的UOS\) 得到的UOS = \(池中的UOS_ 卖出的RAM\) / \(剩余的容量 ＋ 卖出的RAM\)
 
 内存资金池的初始值参数为500W,所以由第一个公式，当有500W的UOS入场内存时，池中的UOS为1000W，计算出：得到的容量= 总容量/2 = 4GB 。  
 接下来，详细价格如下表：
 
-                                        ![](https://cdn.nlark.com/yuque/358/2019/png/127101/1554712015489-31603e0c-5670-44b1-80f9-a319e11b6075.png#align=left&display=inline&height=512&originHeight=512&originWidth=451&size=0&status=done&width=451)  
-                                                         UOS内存价格表.png  
+```text
+                                    ![](https://cdn.nlark.com/yuque/358/2019/png/127101/1554712015489-31603e0c-5670-44b1-80f9-a319e11b6075.png#align=left&display=inline&height=512&originHeight=512&originWidth=451&size=0&status=done&width=451)  
+                                                     UOS内存价格表.png  
+```
+
 作图如下：
 
-                                         ![](https://cdn.nlark.com/yuque/358/2019/png/127101/1554712015491-fb3034ed-73e9-42d0-a9cc-d3e002fe5b32.png#align=left&display=inline&height=256&originHeight=256&originWidth=375&size=0&status=done&width=375)  
-                                                           UOS内存价格曲线.png
+```text
+                                     ![](https://cdn.nlark.com/yuque/358/2019/png/127101/1554712015491-fb3034ed-73e9-42d0-a9cc-d3e002fe5b32.png#align=left&display=inline&height=256&originHeight=256&originWidth=375&size=0&status=done&width=375)  
+                                                       UOS内存价格曲线.png
+```
 
 ### 2.3.2 cpu和net
 
@@ -207,7 +212,7 @@ baodaotulong用户抵押了0.1000 UOS的net，已使用了432bytes，可用15.63
 > "cpu\_usage\_us": 609 "net\_usage\_words": 16
 
 cpu和net资源的平均使用量，是一种改进的指数移动平均模型：  
-                                                   ![image.png](https://cdn.nlark.com/yuque/358/2019/png/127101/1554715003701-6f12048e-46fb-4950-b89b-6a8024b47aa4.png#align=left&display=inline&height=38&name=image.png&originHeight=38&originWidth=389&size=3573&status=done&width=389)  
+![image.png](https://cdn.nlark.com/yuque/358/2019/png/127101/1554715003701-6f12048e-46fb-4950-b89b-6a8024b47aa4.png#align=left&display=inline&height=38&name=image.png&originHeight=38&originWidth=389&size=3573&status=done&width=389)  
 其中:  
 VX: 资源的平均使用量；  
 VX’: 上次资源的平均使用量；  
@@ -217,10 +222,10 @@ Windowsize:窗口大小；
 Futuredistance:上个更新时刻为周期起点，当前时刻离周期终点的距离。  
 当每个块都有更新时，Futuredistance+1 = Windowsize，上试退化成普通的指数平均模型。  
 当前的cpu更新使用量：  
-                                                        ![image.png](https://cdn.nlark.com/yuque/358/2019/png/127101/1554715224683-20a1980f-0cee-4e07-a28f-0c3579862f9e.png#align=left&display=inline&height=38&name=image.png&originHeight=38&originWidth=210&size=2538&status=done&width=210)  
+![image.png](https://cdn.nlark.com/yuque/358/2019/png/127101/1554715224683-20a1980f-0cee-4e07-a28f-0c3579862f9e.png#align=left&display=inline&height=38&name=image.png&originHeight=38&originWidth=210&size=2538&status=done&width=210)  
 对某个用户而言，Windowsize的大小是24小时的区块数量。  
 而用户cpu和net资源的可用量与自身抵押和UOS的繁忙程度有关，UOS用虚拟资源的概念表述。UOS上的交易越多，UOS越繁忙，UOS的虚拟资源越少，用户可使用的资源就越少，用户抵押的越多，可使用的资源就越多。实际上，UOS区块的cpu和net的更新使用量计算公式也是依照以上两个公式，不过unit为一个区块总的cpu和net使用量，Windowsize为60。  
-下面的命令是查询UOS系统的全局参数，以cpu为例，当区块的cpu当前更新使用量小于target\_block\_cpu\_usage\_pct_max\_block\_cpu\_usage，UOS会判定系统处于闲暇，抬升UOS的虚拟cpu大小。反之亦然，虚拟cpu的取值区间为\[max\_block\_cpu\_usage，max\_block\_cpu\_usage_1000\]。
+下面的命令是查询UOS系统的全局参数，以cpu为例，当区块的cpu当前更新使用量小于target\_block\_cpu\_usage\_pct\_max\_block\_cpu\_usage，UOS会判定系统处于闲暇，抬升UOS的虚拟cpu大小。反之亦然，虚拟cpu的取值区间为\[max\_block\_cpu\_usage，max\_block\_cpu\_usage\_1000\]。
 
 ```text
 cluos -u https://rpc3.uosio.org:8080 get table uosio uosio global
@@ -269,7 +274,7 @@ cluos -u https://rpc3.uosio.org:8080 get table uosio uosio global
 
 ## 2.4 多重签名
 
-UOS的多重签名有两种方式：一种是手动多重签名，一种是利用uosio.msig合约进行多重签名。 
+UOS的多重签名有两种方式：一种是手动多重签名，一种是利用uosio.msig合约进行多重签名。
 
 ### 2.4.1 手动多重签名
 
@@ -356,7 +361,7 @@ cluos -u http://rpc.uos.iccob.com:9008 push transaction -s tr.json
 
 > 41454b52b491f22468abbe8967df570a4961b63452cdb20743e65885b6bca7c0
 
-浏览器查询：[https://explorer.uosio.org/transactions/5999587/41454b52b491f22468abbe8967df570a4961b63452cdb20743e65885b6bca7c0](https://explorer.uosio.org/transactions/5999587/41454b52b491f22468abbe8967df570a4961b63452cdb20743e65885b6bca7c0) 
+浏览器查询：[https://explorer.uosio.org/transactions/5999587/41454b52b491f22468abbe8967df570a4961b63452cdb20743e65885b6bca7c0](https://explorer.uosio.org/transactions/5999587/41454b52b491f22468abbe8967df570a4961b63452cdb20743e65885b6bca7c0)
 
 ### 2.4.2 调用uosio.msig合约的多重签名
 
@@ -367,8 +372,7 @@ cluos -u http://rpc.uos.iccob.com:9008 push transaction -s tr.json
  cluos -u https://rpc3.uosio.org:8080  set account permission baodaotulong active '{"threshold":2,"keys":[],"accounts":[{"permission":{"actor":"bithumbshiny","permission":"active"},"weight":1},{"permission":{"actor":"testertester","permission":"active"},,"weight":1}]}' -p baodaotulong@active
 ```
 
-查看权限：  
-
+查看权限：
 
 ```text
 cluos -u https://rpc3.uosio.org:8080 get account baodaotulongcreated: 2019-03-29T08:46:56.000
@@ -377,8 +381,8 @@ permissions:
        active     2:    1 bithumbshiny@active, 1 testertester@active
 ```
 
-baodaotulong的active权限阈值为２，需要bithumbshiny的active权限以及testertester的active权限才能解锁。  
-  
+baodaotulong的active权限阈值为２，需要bithumbshiny的active权限以及testertester的active权限才能解锁。
+
 发起一个提案：baodaotulong往aaaaaaaaaaaa转0.001个UOS。
 
 ```text
@@ -409,8 +413,7 @@ cluos -u https://rpc3.uosio.org:8080 multisig exec bithumbshiny transf -p bithum
 交易id:14255495bcafc1d0e6977b47234a600eba8cbe3a2e5df8f12ad84b8a0d750333
 ```
 
-以上是对某一个合约执行发起提案，我们也可以对具体某一个交易发起提案，这要求我们先构造好一个交易json\(见手动多重签名\)：  
-
+以上是对某一个合约执行发起提案，我们也可以对具体某一个交易发起提案，这要求我们先构造好一个交易json\(见手动多重签名\)：
 
 ```text
 cluos multisig propose_trx [OPTIONS] proposal_name requested_permissions transaction [proposer]
@@ -453,8 +456,8 @@ cluos -u http://rpc.uos.iccob.com:9008 get table uosio uosio producers
 
 共识节点的奖池有三个：uosio.bvpay、uosio.bpay 、uosio.vpay  
 他们之间的关系是，uosio.bvpay是奖池源头，uosio.bpay是出块奖池，uosio.vpay是投票奖池。  
-                                                  ![](https://cdn.nlark.com/yuque/358/2019/png/127101/1554776846545-16377014-3c42-4db1-a48c-c663a4de4131.png#align=left&display=inline&height=322&originHeight=322&originWidth=508&size=0&status=done&width=508)  
-                                                                                bvpay.jpg
+![](https://cdn.nlark.com/yuque/358/2019/png/127101/1554776846545-16377014-3c42-4db1-a48c-c663a4de4131.png#align=left&display=inline&height=322&originHeight=322&originWidth=508&size=0&status=done&width=508)  
+bvpay.jpg
 
 uosio.bvpay奖池源奖金的0.8将会进入出块奖池，奖池源的0.2将会进入投票奖池。  
 查看总奖池：
@@ -486,7 +489,7 @@ id = 0代表当前奖励周期，id = 1代表下一次奖励周期，周期长�
 假如现在的时间戳在周期０内，那么bp发起一次领奖，能领取多少钱呢？  
 假设为领取时刻为ｔ,则奖池源发放的奖金为：
 
-> out\_all = \(t - laster\_line\_0\)  _quantity\_0_  10000 / \(dead\_line\_0 - laster\_line\_0\); \(2-5-1\)
+> out\_all = \(t - laster\_line\_0\) _quantity\_0_ 10000 / \(dead\_line\_0 - laster\_line\_0\); \(2-5-1\)
 
 奖金会分为两部分流入uosio.bpay与uosio.vpay。其中，0.8\*out\_all 进入uosio.bpay,0.2进入uosio.vpay。  
 查看系统合约global参数：
@@ -570,11 +573,11 @@ uoskkkkonebp的获得票数为1000000000.00000000000000000，未结算的生产�
 那么如果ｔ时刻\(t &gt; 1554259259000000 + 3600\)  
 uoskkkkonebp能领取出块的奖励为m,则:
 
-> m = \(out\_all_0.8 + perblock\_bucket\)_unpaid\_blocks / total\_unpaid\_blocks \(2-5-2\)
+> m = \(out\_all\_0.8 + perblock\_bucket\)\_unpaid\_blocks / total\_unpaid\_blocks \(2-5-2\)
 
 uoskkkkonebp能领取的投票奖励为n,则:
 
-> n= \(out\_all_0.2 + pervote\_bucket\)_total\_votes / total\_producer\_vote\_weight \(2-5-3\)
+> n= \(out\_all\_0.2 + pervote\_bucket\)\_total\_votes / total\_producer\_vote\_weight \(2-5-3\)
 >
 > 注：当n &gt;= 100 0000时，即投票奖励大于100UOS,n才有效,否则不会发放投票奖励
 

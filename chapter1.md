@@ -22,7 +22,7 @@ UOS提供有内存买卖，cpu抵押特色服务，对于资源不足的用户�
 
 ·         kuosd\(key + uos = kuosd\) -- 将UOSIO秘钥安全存储在钱包中的组件。
 
-{% file src=".gitbook/assets/uos-jia-gou.png" caption="uos架构" %}
+![uos&#x67B6;&#x6784;](.gitbook/assets/uos-architecture.png)
 
 ## 1.3 UOS的特点
 

@@ -15,27 +15,33 @@ wget [ftp://tools.ulord.one/UOS_Mainnet.tar.gz]()
 
 4. 安装uos程序<br />
 sudo ~/uos/install.sh
-<br />
+
 5. 修改noduos配置文件<br />
 配置文件路径：~/uos/cfg/config.ini<br />
 (1)修改状态数据库大小，使用free -m 查看当前系统可用内存，最好大于16G可用，如下是把状态数据库配置为30G：<br />
 chain-state-db-size-mb = 30480<br />
+
 (2)修改http服务地址，假如您的计算机私网ip为10.186.14.20，启用9008端口，如下配置：<br />
 http-server-address = 10.186.14.20:9008<br />
+
 (3)修改端口映射，即映射(2)中的服务端口。假如您的公网ip为114.61.17.245，如下配置：<br />
 http-alias = 114.61.17.245:9008<br />
+
 (4)修改p2p服务地址。假如您的计算机私网ip为10.186.14.20，启用12008端口做为数据同步端口，如下设置：<br />
 p2p-listen-endpoint = 10.186.14.20:12008<br />
+
 (5)修改p2p服务端口地址映射，即映射(4)中的服务端口。假如您的公网ip为114.61.17.245，如下配置：<br />
 p2p-server-address = 114.61.17.245:12008<br />
+
 (6)增加p2p peer地址。这里是指其它机器的服务地址。这里可以指定多个地址,目前主网可用的部分p2p地址如下:<br />
-p2p-peer-address = 114.67.37.75:9660<br />
-p2p-peer-address = 114.67.37.76:9660<br />
-p2p-peer-address = 124.232.147.65:7020<br />
-p2p-peer-address = rpc.uos.iccob.com:12008<br />
-p2p-peer-address = 111.204.209.105:11111<br />
-p2p-peer-address = uos.chainclub.one:12008<br />
-p2p-peer-address = 27.128.165.213:12008
+
+  p2p-peer-address = 114.67.37.75:9660<br />
+  p2p-peer-address = 114.67.37.76:9660<br />
+  p2p-peer-address = 124.232.147.65:7020<br />
+  p2p-peer-address = rpc.uos.iccob.com:12008<br />
+  p2p-peer-address = 111.204.209.105:11111<br />
+  p2p-peer-address = uos.chainclub.one:12008<br />
+  p2p-peer-address = 27.128.165.213:12008
 
 6. 修改节点名称
   agent-name = "myname"<br /><br />

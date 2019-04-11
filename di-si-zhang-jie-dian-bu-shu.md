@@ -10,7 +10,8 @@ wget [ftp://tools.ulord.one/UOS_Mainnet.tar.gz]()
   tar  -zxvf  ~/UOS_Mainnet.tar.gz
  <br />
 3. 修改文件执行权限
-  chmod +x ~/uos/noduos ~/uos/cluos ~/uos/kuosd ~/uos/install.sh<br />~/uos/uninstall.sh
+  chmod +x ~/uos/noduos ~/uos/cluos ~/uos/kuosd ~/uos/install.sh<br />
+  ~/uos/uninstall.sh
 
 4. 安装uos程序<br />
 sudo ~/uos/install.sh

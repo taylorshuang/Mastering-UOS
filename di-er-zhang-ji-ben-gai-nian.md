@@ -191,7 +191,7 @@ UOS的内存容量现为８G,这意味这每个UOS节点程序要求自己计算
 
 ```text
                                     ![](https://cdn.nlark.com/yuque/358/2019/png/127101/1554712015489-31603e0c-5670-44b1-80f9-a319e11b6075.png#align=left&display=inline&height=512&originHeight=512&originWidth=451&size=0&status=done&width=451)  
-                                                     UOS内存价格表.png  
+                                                     UOS内存价格表.png
 ```
 
 作图如下：

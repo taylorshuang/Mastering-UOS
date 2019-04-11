@@ -9,13 +9,14 @@ wget [ftp://tools.ulord.one/UOS_Mainnet.tar.gz]()
 2. 将UOS_Mainnet.tar.gz放到当前用户的根目录下并解压文件<br />
   tar  -zxvf  ~/UOS_Mainnet.tar.gz
  <br />
-3. 修改文件执行权限
+3. 修改文件执行权限<br />
   chmod +x ~/uos/noduos ~/uos/cluos ~/uos/kuosd ~/uos/install.sh<br />
   ~/uos/uninstall.sh
+<br />
 
 4. 安装uos程序<br />
 sudo ~/uos/install.sh
-
+<br />
 5. 修改noduos配置文件<br />
 配置文件路径：~/uos/cfg/config.ini<br />
 (1)修改状态数据库大小，使用free -m 查看当前系统可用内存，最好大于16G可用，如下是把状态数据库配置为30G：<br />

@@ -90,7 +90,7 @@ UOS侧链可以支持各种区块链的应用:
 
 这是最简单的操作示意图。
 
-![&#x8F6C;&#x79FB;&#x6D41;&#x7A0B;](.gitbook/assets/image%20%281%29.png)
+![&#x8F6C;&#x79FB;&#x6D41;&#x7A0B;](.gitbook/assets/transfer-process.png)
 
 UT和UOS之间全部采用联盟的方式进行，这样能尽可能的保证去中心化。
 

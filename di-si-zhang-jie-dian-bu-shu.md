@@ -253,7 +253,7 @@ Public key:UOS8gqvsvhd8TBLvFdTxtPbDmcR4MyuLWUmJBtJUkoMt9TjT2Fm1C
 
 <br />注：其中marsaccount3、uosvegasjack、dragonexsafe表示三个bp用户，将来用于出块,而其中超级用户uosio的密匙是默认产生的，不要手动产生，直接使用即可。
 
-1. 创建钱包与导入密匙
+2. 创建钱包与导入密匙
 
 我们创建一个钱包，并将密匙导入到钱包中：<br />cluos wallet create -n uos --to-console<br />
 <br />请把返回的钱包密匙妥善保管，用于将来解锁钱包。下面将密匙导入到钱包中，用来签名我们的交易:
@@ -268,7 +268,7 @@ cluos wallet import -n uos --private-key 5KRcKYJMAYL3VDfGQtrNGBJb268sou2yWy3rVeC
 cluos wallet import -n uos --private-key 5JcNjjvZBPTqjjBnnqfdP3TBn19nMACr5zbN88KTcpCwV8vqyuz
 ```
 
-1. 开启超级用户uosio节点
+3. 开启超级用户uosio节点
 
 ```
 noduos -e -p uosio -d ~/uosdata/uosio --http-server-address 10.186.11.110:6000 --p2p-listen-endpoint 10.186.11.110:7000 --plugin uosio::net_plugin --plugin uosio::net_api_plugin   --plugin uosio::chain_plugin --plugin uosio::chain_api_plugin --p2p-peer-address 47.92.123.209:9008 --contracts-console --delete-all-blocks &
@@ -276,7 +276,7 @@ noduos -e -p uosio -d ~/uosdata/uosio --http-server-address 10.186.11.110:6000 -
 
 命令行各字段的解析如下:<br />-e:   表示当前节点需要出块<br />-p:   生产节点对应的用户名称<br />-d:   区块数据存储路径<br />--http-server-address:http协议访问地址<br />--p2p-listen-endpoint:p2p监听地址，用于同步区块<br />--plugin:  当前程序启动使用的插件名称<br />--p2p-peer-address:p2p对端地址<br />--contracts-console:      智能合约打印开关<br />--delete-all-blocks:       删除当前节点的所有区块，使用之前请慎重考虑
 
-1. 启动三个bp节点
+4. 启动三个bp节点
 
 开启三个命令行终端，分别运行如下指令：
 
@@ -288,7 +288,7 @@ noduos  -p dragonexsafe -d ~/uosdata/dragonexsafe --http-server-address 10.186.1
 
 <br />运行后，可以看到这三个节点在同步区块，生产区块的为uosio用户。
 
-1. 创建系统用户
+5. 创建系统用户
 
 ```
 cluos  -u http://10.186.11.110:6000 create account uosio uosio.bpay UOS5qf77wsPHB1gu2o5K7vbcnSzeR4aaCQ3NZ4AEE7SJscnpHR5yA
@@ -302,7 +302,7 @@ cluos  -u http://10.186.11.110:6000 create account uosio uosio.token  UOS5qf77ws
 cluos  -u http://10.186.11.110:6000 create account uosio uosio.vpay UOS5qf77wsPHB1gu2o5K7vbcnSzeR4aaCQ3NZ4AEE7SJscnpHR5yA
 ```
 
-1. 加载智能合约
+6. 加载智能合约
 
 ```
 cluos  -u http://10.186.11.110:6000 set contract uosio.token ~/mainnet/uosio.token/
@@ -314,7 +314,7 @@ cluos  -u http://10.186.11.110:6000 set contract uosio ~/mainnet/uosio.system/
 cluos  -u http://10.186.11.110:6000 push action uosio setpriv '["uosio.msig", 1]' -p uosio
 ```
 
-1. 创建bp用户
+7. 创建bp用户
 
 ```
 cluos  -u http://10.186.11.110:6000 system newaccount --transfer uosio marsaccount3 UOS6tRMkGV71q3HGiTDWQF5WJ1m5XTb5xiwa2ChLVztBwM4GLDNV4 UOS8EAN6hruoe4HHRGFKUVYTM5yhVEoeGcAxutpTvA37QeqTdsPaW   --stake-net "1000000.0000  UOS" --stake-cpu "100000.0000  UOS" --buy-ram "10000.0000  UOS"
@@ -322,7 +322,7 @@ cluos  -u http://10.186.11.110:6000 system newaccount --transfer uosio uosvegasj
 cluos  -u http://10.186.11.110:6000 system newaccount --transfer uosio dragonexsafe UOS74LnwpTH4Txixcz5Ze7v78FZLwLZJmBdzCJFBPQinQRbdssVny UOS87iQtt9sPgf949RC6vdRoqZvHPUg68SVBwLXYb8HTMLwmteqvT --stake-net "3000000.0000  UOS" --stake-cpu "100000.0000  UOS" --buy-ram "10000.0000  UOS"
 ```
 
-1. 注册候选节点
+8. 注册候选节点
 
 ```
 cluos  -u http://10.186.11.110:6000 system regproducer marsaccount3 UOS67pXkxe4C3B8hsLJk2oXMkMqWpBxP1413WJG13q8hesyADkroR http://marsaccount3.com UOS67pXkxe4C3B8hsLJk2oXMkMqWpBxP1413WJG13q8hesyADkroR
@@ -330,7 +330,7 @@ cluos  -u http://10.186.11.110:6000 system regproducer uosvegasjack UOS6evJJre5M
 cluos  -u http://10.186.11.110:6000 system regproducer dragonexsafe UOS8gqvsvhd8TBLvFdTxtPbDmcR4MyuLWUmJBtJUkoMt9TjT2Fm1C http://dragonexsafe.com UOS8gqvsvhd8TBLvFdTxtPbDmcR4MyuLWUmJBtJUkoMt9TjT2Fm1C
 ```
 
-1. 投票
+9. 投票
 
 三个bp分别给自己进行投票
 

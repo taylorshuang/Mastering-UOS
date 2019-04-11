@@ -61,7 +61,7 @@ UOSIO提供了各种工具，这些工具要求您具备基本的命令行知识
 
 提示：如果您的系统上已经安装了以前版本的uosio，请卸载之后再继续。
 
-Shell命令：\(此处是测试链的安装包，主链安装包为**UOS\_Mainnet.tar.gz**\)
+\(此处是测试链的安装包，主链安装包为**UOS\_Mainnet.tar.gz**\)
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -372,8 +372,6 @@ Wallets:
 **第四步: 导入开发私钥**
 
 每个新的UOSIO链都有一个名为“uosio”的默认“系统”用户。此帐户通过加载系统合约来对链进行配置，这些合约规定了对链的管理和共识。每条新的UOSIO链都带有一个开发私钥，这个私钥是相同的。加载此私钥代表系统用户\(uosio\)签署事务。接来下我们将开发私钥导入钱包。
-
-Shell命令：
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -1366,8 +1364,6 @@ UOSIO_DISPATCH( addressbook, (upsert)(erase))
 
 编译合约，在终端执行以下命令。
 
-Shell命令：
-
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
 ```bash
@@ -1379,8 +1375,6 @@ uosio-cpp -o addressbook.wasm addressbook.cpp --abigen
 然后，为合约创建一个addressbook帐户（创建账户详见《UOS合约开发—环境》文档）。
 
 部署addressbook合约。
-
-Shell命令：
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}

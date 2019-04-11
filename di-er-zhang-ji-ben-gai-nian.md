@@ -373,7 +373,8 @@ cluos -u http://rpc.uos.iccob.com:9008 push transaction -s tr.json
 查看权限：
 
 ```text
-cluos -u https://rpc3.uosio.org:8080 get account baodaotulongcreated: 2019-03-29T08:46:56.000
+cluos -u https://rpc3.uosio.org:8080 get account baodaotulong
+created: 2019-03-29T08:46:56.000
 permissions:
     owner     1:    1 UOS5A4sYXU6SA5kyKjbu76r9xapgrzotjhLEgPSZzDzMBJpw1559Y
        active     2:    1 bithumbshiny@active, 1 testertester@active

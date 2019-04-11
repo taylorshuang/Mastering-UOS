@@ -49,7 +49,9 @@ usoio提供了各种工具，这些工具要求您具备基本的命令行知识
 
 下面以 addressbook.cpp 为例 讲一下合约的编写。
 
-```text
+{% code-tabs %}
+{% code-tabs-item title="addressbook.cpp" %}
+```cpp
 #include <uosiolib/uosio.hpp>   //合约库的头文件
 #include <uosiolib/print.hpp>   //使用打印输出，调试时候用
 
@@ -158,6 +160,8 @@ private:
 
 UOSIO_DISPATCH( addressbook, (upsert)(notify)(erase))   //申明合约可以被调用的接口
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ##  转换EOS合约
 
@@ -171,9 +175,13 @@ eos ==》uos
 
 然后 直接进行编译即可。
 
-```text
+{% code-tabs %}
+{% code-tabs-item title="shell" %}
+```bash
 uosio-cpp addressbook.cpp -o addressbook.wasm –abigen 
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 使用uosio-cpp进行编译 。
 

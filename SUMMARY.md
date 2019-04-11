@@ -7,4 +7,5 @@
 * [第四章  节点部署](di-si-zhang-jie-dian-bu-shu.md)
 * [第五章 智能合约介绍](di-wu-zhang-zhi-neng-he-yue-jie-shao.md)
 * [第六章 合约开发教程](di-liu-zhang.md)
+* [第七章 插件介绍](di-qi-zhang-cha-jian-jie-shao.md)
 

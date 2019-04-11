@@ -6,17 +6,16 @@
 1. 下载安装文件<br />
 wget [ftp://tools.ulord.one/UOS_Mainnet.tar.gz]()
 
-1. 将UOS_Mainnet.tar.gz放到当前用户的根目录下并解压文件<br />
-tar  -zxvf  ~/UOS_Mainnet.tar.gz
-1. <br />
-1. 修改文件执行权限
+2. 将UOS_Mainnet.tar.gz放到当前用户的根目录下并解压文件<br />
+  tar  -zxvf  ~/UOS_Mainnet.tar.gz
+ <br />
+3. 修改文件执行权限
+  chmod +x ~/uos/noduos ~/uos/cluos ~/uos/kuosd ~/uos/install.sh<br />~/uos/uninstall.sh
 
-chmod +x ~/uos/noduos ~/uos/cluos ~/uos/kuosd ~/uos/install.sh<br />~/uos/uninstall.sh
-
-1. 安装uos程序<br />
+4. 安装uos程序<br />
 sudo ~/uos/install.sh
 
-1. 修改noduos配置文件<br />
+5. 修改noduos配置文件<br />
 配置文件路径：~/uos/cfg/config.ini<br />
 (1)修改状态数据库大小，使用free -m 查看当前系统可用内存，最好大于16G可用，如下是把状态数据库配置为30G：<br />
 chain-state-db-size-mb = 30480<br />
@@ -37,13 +36,12 @@ p2p-peer-address = 111.204.209.105:11111<br />
 p2p-peer-address = uos.chainclub.one:12008<br />
 p2p-peer-address = 27.128.165.213:12008
 
-1. 修改节点名称
-
-agent-name = "myname"<br /><br />
-1. 打开上面服务器的配置的端口
+6. 修改节点名称
+  agent-name = "myname"<br /><br />
+7. 打开上面服务器的配置的端口
 
 sudo ufw allow 9008 12008<br /><br />
-1. 运行noduos程序
+8. 运行noduos程序
 
 ```
 //前台
@@ -71,18 +69,17 @@ UOS采用DPOS共识，DPOS类似董事会投票，持币者投出一定数量的
 
 tar -zxvf ~/UOS_Testnet.tar.gz
 
-1. 修改文件执行权限
+2. 修改文件执行权限
 
 chmod +x ~/uos/noduos ~/uos/cluos ~/uos/kuosd ~/uos/install.sh ~/uos/uninstall.sh                     ~/uos/mongodb/bin/mongod
 
-1. 安装uos程序
+3. 安装uos程序
 
 sudo ~/uos/install.sh
 
-1. 修改noduos配置文件
+4. 修改noduos配置文件
 
-配置文件路径：~/uos/cfg/config.ini<br />(1)修改状态数据库大小，使用free -m 查看当前系统可用内存，最好大于16G可用，下面是把状态数据库配置为20G大小：<br />chain-state-db-size-mb
-= 20480
+配置文件路径：~/uos/cfg/config.ini<br />(1)修改状态数据库大小，使用free -m 查看当前系统可用内存，最好大于16G可用，下面是把状态数据库配置为20G大小：<br />chain-state-db-size-mb = 20480
 
 (2)修改http服务地址,假如您的计算机私网ip为10.186.14.20，启用9008端口，如下配置：<br />http-server-address<br />= 10.186.14.20:9008
 
@@ -106,11 +103,11 @@ sudo ~/uos/install.sh
 
 (10)修改加载插件（BP节点加载以下4个插件即可）<br />plugin= uosio::chain_api_plugin<br />plugin= uosio::chain_plugin<br />plugin= uosio::net_plugin<br />plugin= uosio::net_api_plugin
 
-1. 打开上面服务器的配置的端口
+5. 打开上面服务器的配置的端口
 
 sudo ufw allow 9008 12008
 
-1. 运行noduos程序
+6. 运行noduos程序
 
 前台运行命令：<br />noduos --genesis-json ~/uos/cfg/genesis.json --config-dir ~/uos/cfg/ --data-dir ~/uos/data<br />
 <br />后台运行命令：<br />nohup noduos --genesis-json ~/uos/cfg/genesis.json --config-dir ~/uos/cfg/ --data-dir ~/uos/data &

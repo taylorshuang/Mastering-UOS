@@ -22,6 +22,8 @@ UOS提供有内存买卖，cpu抵押特色服务，对于资源不足的用户�
 
 ·         kuosd\(key + uos = kuosd\) -- 将UOSIO秘钥安全存储在钱包中的组件。
 
+![uos&#x67B6;&#x6784;](.gitbook/assets/image%20%282%29.png)
+
 ### UOS的特点
 
 1.UOS采用DPOS共识算法，杜绝了资源浪费，很好的解决了网络延迟和数据吞吐量问题。
@@ -87,6 +89,8 @@ UOS侧链可以支持各种区块链的应用:
 ### UT在Ulord和UOS之间转移流程
 
 这是最简单的操作示意图。
+
+![&#x8F6C;&#x79FB;&#x6D41;&#x7A0B;](.gitbook/assets/image%20%281%29.png)
 
 UT和UOS之间全部采用联盟的方式进行，这样能尽可能的保证去中心化。
 

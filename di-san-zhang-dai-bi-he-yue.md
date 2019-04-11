@@ -30,7 +30,7 @@ UOS的每个用户均可以发行代币，可以部署和uosio.token一样的合
 
 假设编译好的代币合约文件夹\(uosio.token\)存放在目录~/uosio\_test/contracts
 
-​ ![image.png](https://cdn.nlark.com/yuque/358/2019/png/127101/1554780630821-6ed00d11-91fe-4e58-8afa-9f2fff9ffd48.png)​
+​                                            ![image.png](https://cdn.nlark.com/yuque/358/2019/png/127101/1554780630821-6ed00d11-91fe-4e58-8afa-9f2fff9ffd48.png)​
 
 将代币合约部署于bithumbshiny:
 

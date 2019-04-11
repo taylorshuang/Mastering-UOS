@@ -43,7 +43,7 @@ usoio提供了各种工具，这些工具要求您具备基本的命令行知识
 
 推荐uosio.cdt 的代码和你的编译源码一起看。uosio.cdt有例子，很容易做到举一反三。而且查询接口也很容易查。你自己的程序也可以放到 ~/uosio.cdt/examples 目录下，方便比较。
 
-##  UOS合约示例
+## UOS合约示例
 
 写合约最好在别人的模板上面改，框架就不用写了，而且可以减少犯错的概率。加快开发速度。/uosio.cdt/examples 提供了一些例子，可以借鉴。
 
@@ -59,9 +59,9 @@ class [[uosio::contract]] addressbook : public uosio::contract {
 //[[uosio::contract]]表示这个是合约，名称为 addressbook，必须从uosio::contract 继承
 public:
   using contract::contract;   //直接使用 contract::contract 类型
-  
+
   addressbook(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds) {}   //构造函数
-  
+
   [[uosio::action]] 
   void upsert(name user, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
     require_auth(user);   //需要 user用户的授权，即user用户发起的交易就可以执行。
@@ -104,7 +104,7 @@ public:
       }
     }
   }
-  
+
   [[uosio::action]]
   void erase(name user) {   //删除操作
     require_auth(user);
@@ -115,13 +115,13 @@ public:
     send_summary(user, " successfully erased record from addressbook");
     increment_counter(user, "erase");
   }
-  
+
   [[uosio::action]]   //通知操作。合约本身有执行自己的权限
   void notify(name user, std::string msg) {
     require_auth(get_self());   //合约本身有执行自己的权限
     require_recipient(user);   //通知 user用户
   }
-  
+
 private:
   struct [[uosio::table]] person {   //合约的数据结构
     name key;
@@ -130,10 +130,10 @@ private:
     std::string street;
     std::string city;
     std::string state;
-    
+
     uint64_t primary_key() const { return key.value; }
   };
-  
+
   void send_summary(name user, std::string message) {   //发送通知信息
     action(
       permission_level{get_self(),"active"_n},
@@ -142,7 +142,7 @@ private:
       std::make_tuple(user, name{user}.to_string() + message)
     ).send();
   };
-  
+
   void increment_counter(name user, std::string type) {   //发送计数交易
     action counter = action(
       permission_level{get_self(),"active"_n},   //合约发布者的 active权限
@@ -152,14 +152,14 @@ private:
     );
     counter.send();
   }
-  
+
   typedef uosio::multi_index<"people"_n, person> address_index;   //合约表的索引结构
 };
 
 UOSIO_DISPATCH( addressbook, (upsert)(notify)(erase))   //申明合约可以被调用的接口
 ```
 
-##  转换EOS合约
+## 转换EOS合约
 
 Uos的合约开发工具和eos的合约开发工具基本是一致的，eos 1.5版本的接口名称 uos1.5版本全部支持。
 
@@ -172,10 +172,10 @@ eos ==》uos
 然后 直接进行编译即可。
 
 ```text
-uosio-cpp addressbook.cpp -o addressbook.wasm –abigen 
+uosio-cpp addressbook.cpp -o addressbook.wasm –abigen
 ```
 
 使用uosio-cpp进行编译 。
 
-编译出的 addressbook.abi    addressbook.wasm 即可在uos公链上面进行使用。
+编译出的 addressbook.abi addressbook.wasm 即可在uos公链上面进行使用。
 

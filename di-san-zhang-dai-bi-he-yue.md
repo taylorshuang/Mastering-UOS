@@ -2,7 +2,7 @@
 
 在UOS中，可以说一切皆为合约，UOS的系统代币“UOS”也是通过合约来发放的，合约就像是银行，规定代币的发放以及流转规则。用户可以在自己的账户上部署代币合约，就像在自己的土地上盖起一栋美联储。甚至可以定制合约，制定独特的代币的发放和流转规则。
 
-## 3.1 UOS代币合约  <a id="b5d26a2e"></a>
+## 3.1 UOS代币合约   <a id="b5d26a2e"></a>
 
 UOS系统的代币合约部署于账户“uosio.token”
 
@@ -24,13 +24,13 @@ UOS系统的代币合约部署于账户“uosio.token”
 
 > cluos -u [https://rpc3.uosio.org:8080](https://rpc3.uosio.org:8080) get currency balance uosio.token baodaotulong UOS
 
-## 3.2 发行自己的代币  <a id="cd97cda2"></a>
+## 3.2 发行自己的代币   <a id="cd97cda2"></a>
 
 UOS的每个用户均可以发行代币，可以部署和uosio.token一样的合约，也使用自己定义
 
 假设编译好的代币合约文件夹\(uosio.token\)存放在目录~/uosio\_test/contracts
 
-​                                            ![image.png](https://cdn.nlark.com/yuque/358/2019/png/127101/1554780630821-6ed00d11-91fe-4e58-8afa-9f2fff9ffd48.png)​
+​ ![image.png](https://cdn.nlark.com/yuque/358/2019/png/127101/1554780630821-6ed00d11-91fe-4e58-8afa-9f2fff9ffd48.png)​
 
 将代币合约部署于bithumbshiny:
 

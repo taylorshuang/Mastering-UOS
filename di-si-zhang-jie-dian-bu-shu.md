@@ -9,6 +9,7 @@ wget [ftp://tools.ulord.one/UOS_Mainnet.tar.gz]()
 2. 将UOS_Mainnet.tar.gz放到当前用户的根目录下并解压文件<br />
   tar  -zxvf  ~/UOS_Mainnet.tar.gz
  <br />
+ 
 3. 修改文件执行权限<br />
   chmod +x ~/uos/noduos ~/uos/cluos ~/uos/kuosd ~/uos/install.sh<br />
   ~/uos/uninstall.sh

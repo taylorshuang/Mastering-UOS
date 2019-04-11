@@ -38,9 +38,10 @@ p2p-peer-address = 27.128.165.213:12008
 
 6. 修改节点名称
   agent-name = "myname"<br /><br />
+  
 7. 打开上面服务器的配置的端口
+  sudo ufw allow 9008 12008<br /><br />
 
-sudo ufw allow 9008 12008<br /><br />
 8. 运行noduos程序
 
 ```
@@ -58,32 +59,32 @@ nohup noduos --genesis-json ~/uos/cfg/genesis.json --config-dir ~/uos/cfg/ --dat
 # UOS生产节点部署及申请
 <a name="a4d3b02a"></a>
 ## 概述
-UOS采用DPOS共识，DPOS类似董事会投票，持币者投出一定数量的节点，代理其进行验证和记账，大幅缩小参与验证和记账节点的数量，可以达到秒级的共识验证。我们称这部分被选出来的节点为生产节点或BP节点。<br />BP节点将为<br />UOS网络提供算力和带宽支持，它们的主要任务就是收集交易信息将其打包进区块，并将区块广播给其他节点，通过验证后再将区块上传至区块链。同时，BP节点还将拥有 UOS 生态的投票权，2/3以上的BP节点投票将使得链上的决策（提案）生效。<br />申请成为BP节点对服务器有较高的要求；同时，需要抵押100000 UOS。<br />当然，成为BP节点可获取奖励，包含出块奖励和投票奖励。同时，为保证链的安全和稳定，BP可以投出作恶或者性能不好的BP节点，一旦BP节点被投出，将扣除其押金和（未领取的）奖励；并将该账户移入黑名单。
+   UOS采用DPOS共识，DPOS类似董事会投票，持币者投出一定数量的节点，代理其进行验证和记账，大幅缩小参与验证和记账节点的数量，可以达到秒级的共识验证。我们称这部分被选出来的节点为生产节点或BP节点。<br />BP节点将为<br />UOS网络提供算力和带宽支持，它们的主要任务就是收集交易信息将其打包进区块，并将区块广播给其他节点，通过验证后再将区块上传至区块链。同时，BP节点还将拥有 UOS 生态的投票权，2/3以上的BP节点投票将使得链上的决策（提案）生效。<br />申请成为BP节点对服务器有较高的要求；同时，需要抵押100000 UOS。<br />当然，成为BP节点可获取奖励，包含出块奖励和投票奖励。同时，为保证链的安全和稳定，BP可以投出作恶或者性能不好的BP节点，一旦BP节点被投出，将扣除其押金和（未领取的）奖励；并将该账户移入黑名单。
 
 <a name="a9f94dcd"></a>
 ## 部署
-1.
-从网站上下载安装文件（该文档中下载文件存放在当前用户根目录）<br />wget [ftp://tools.ulord.one/UOS_Testnet.tar.gz]()
+1.从网站上下载安装文件（该文档中下载文件存放在当前用户根目录）
+<br />wget [ftp://tools.ulord.one/UOS_Testnet.tar.gz]()
 
-1. 解压下载的文件
+2. 解压下载的文件
+  tar -zxvf ~/UOS_Testnet.tar.gz
 
-tar -zxvf ~/UOS_Testnet.tar.gz
+3. 修改文件执行权限
+  chmod +x ~/uos/noduos ~/uos/cluos ~/uos/kuosd ~/uos/install.sh ~/uos/uninstall.sh                     
+  ~/uos/mongodb/bin/mongod
 
-2. 修改文件执行权限
+4. 安装uos程序
+  sudo ~/uos/install.sh
 
-chmod +x ~/uos/noduos ~/uos/cluos ~/uos/kuosd ~/uos/install.sh ~/uos/uninstall.sh                     ~/uos/mongodb/bin/mongod
+5. 修改noduos配置文件
+  配置文件路径：~/uos/cfg/config.ini<br />
+  (1)修改状态数据库大小，使用free -m 查看当前系统可用内存，最好大于16G可用，下面是把状态数据库配置为20G大小：
+  <br />chain-state-db-size-mb = 20480
 
-3. 安装uos程序
+  (2)修改http服务地址,假如您的计算机私网ip为10.186.14.20，启用9008端口，如下配置：
+  <br />http-server-address<br />= 10.186.14.20:9008
 
-sudo ~/uos/install.sh
-
-4. 修改noduos配置文件
-
-配置文件路径：~/uos/cfg/config.ini<br />(1)修改状态数据库大小，使用free -m 查看当前系统可用内存，最好大于16G可用，下面是把状态数据库配置为20G大小：<br />chain-state-db-size-mb = 20480
-
-(2)修改http服务地址,假如您的计算机私网ip为10.186.14.20，启用9008端口，如下配置：<br />http-server-address<br />= 10.186.14.20:9008
-
-(3)修改端口映射，即映射(2)中的服务端口。假如您的公网ip为114.61.17.245,如下配置：<br />http-alias =114.61.17.245:9008
+  (3)修改端口映射，即映射(2)中的服务端口。假如您的公网ip为114.61.17.245,如下配置：<br />http-alias =114.61.17.245:9008
 
 如果只有一个公网ip地址，此项与http-server-address填写一致，即：<br />http-alias = 10.186.14.20:9008
 

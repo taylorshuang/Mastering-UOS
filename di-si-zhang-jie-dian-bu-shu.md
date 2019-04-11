@@ -89,13 +89,12 @@ nohup noduos --genesis-json ~/uos/cfg/genesis.json --config-dir ~/uos/cfg/ --dat
   <br />chain-state-db-size-mb = 20480
 
   (2)修改http服务地址,假如您的计算机私网ip为10.186.14.20，启用9008端口，如下配置：
-  <br />http-server-address<br />= 10.186.14.20:9008
+  <br />http-server-address<br />= 10.186.14.20:9008<br />
 
   (3)修改端口映射，即映射(2)中的服务端口。假如您的公网ip为114.61.17.245,如下配置：<br />http-alias =114.61.17.245:9008
+如果只有一个公网ip地址，此项与http-server-address填写一致，即：<br />http-alias = 10.186.14.20:9008<br />
 
-如果只有一个公网ip地址，此项与http-server-address填写一致，即：<br />http-alias = 10.186.14.20:9008
-
-(4)修改p2p服务地址。假如您的计算机私网ip为10.186.14.20，启用12008端口做为数据同步端口，如下设置：<br />p2p-listen-endpoint = 10.186.14.20:12008
+(4)修改p2p服务地址。假如您的计算机私网ip为10.186.14.20，启用12008端口做为数据同步端口，如下设置：<br />p2p-listen-endpoint = 10.186.14.20:12008<br />
 
 (5)修改p2p服务端口地址映射，即映射(4)中的服务端口。假如您的公网ip为114.61.17.245，如下配置：<br />p2p-server-address =114.61.17.245:12008
 

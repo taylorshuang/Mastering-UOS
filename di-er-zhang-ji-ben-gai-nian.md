@@ -51,13 +51,13 @@ UOS的账户默认有两个权限：owner和active。拥有对应权限的私钥
 
 > UOS5A4sYXU6SA5kyKjbu76r9xapgrzotjhLEgPSZzDzMBJpw1559Y
 
-那么，只要拥有上面公钥对应的私钥，我们便可以在地球上每一个有网络的地方使用“baodaotulong”账户的任何合法操作。我们把用户某权限的私钥称为该用户该权限的**权限私钥。**  
+那么，只要拥有上面公钥对应的私钥，我们便可以在地球上每一个有网络的地方使用“baodaotulong”账户active或者owner身份进行的任何合法操作。我们把用户某权限的私钥称为该用户该权限的**权限私钥。**  
 账户的某一权限可以由公钥组成，也可以有其他账户的权限组成\(比如uosio.prods\)，或者由他们相互结合组成。若是A账户的X权限由B账户Y权限组成，则拥有B账户Y权限的“权限私钥”就可以解锁A的X权限。  
 对如下权限：
 
 > active 1: 1 UOS5A4sYXU6SA5kyKjbu76r9xapgrzotjhLEgPSZzDzMBJpw1559Y
 
-active的后的第一个“１”是**权限阈值，公钥前面的“１”是该公钥的权重，要解锁某一权限，需要权限私钥对应的权重之和要能大于或等于权限阈值。关于权限更多介绍，可以跳转到多重签名章节。**  
+active的后的第一个“１”是**权限阈值，公钥前面的“１”是该公钥的权重，要解锁某一权限，需要权限私钥对应的权重之和要能大于或等于权限阈值。关于权限更多介绍，可以跳转到**[**多重签名章节**](https://mastering-uos.gitbook.io/mastering-uos/di-er-zhang-ji-ben-gai-nian#24-duo-zhong-qian-ming)**。**  
 内存信息、cpu信息、net信息和投票信息将在以后的章节中介绍。 
 
 ## 2.2 交易

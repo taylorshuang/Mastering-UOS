@@ -207,7 +207,7 @@ baodaotulong用户抵押了0.1000 UOS的net，已使用了432bytes，可用15.63
 > "cpu\_usage\_us": 609 "net\_usage\_words": 16
 
 cpu和net资源的平均使用量，是一种改进的指数移动平均模型：  
-                                   ![image.png](https://cdn.nlark.com/yuque/358/2019/png/127101/1554715003701-6f12048e-46fb-4950-b89b-6a8024b47aa4.png#align=left&display=inline&height=38&name=image.png&originHeight=38&originWidth=389&size=3573&status=done&width=389)  
+                                                   ![image.png](https://cdn.nlark.com/yuque/358/2019/png/127101/1554715003701-6f12048e-46fb-4950-b89b-6a8024b47aa4.png#align=left&display=inline&height=38&name=image.png&originHeight=38&originWidth=389&size=3573&status=done&width=389)  
 其中:  
 VX: 资源的平均使用量；  
 VX’: 上次资源的平均使用量；  

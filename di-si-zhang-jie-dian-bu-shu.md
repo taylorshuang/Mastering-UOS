@@ -112,8 +112,7 @@ nohup noduos --genesis-json ~/uos/cfg/genesis.json --config-dir ~/uos/cfg/ --dat
 (10)修改加载插件（BP节点加载以下4个插件即可）<br />plugin= uosio::chain_api_plugin<br />plugin= uosio::chain_plugin<br />plugin= uosio::net_plugin<br />plugin= uosio::net_api_plugin
 
 5. 打开上面服务器的配置的端口
-
-sudo ufw allow 9008 12008
+  sudo ufw allow 9008 12008
 
 6. 运行noduos程序
 

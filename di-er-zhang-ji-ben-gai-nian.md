@@ -189,17 +189,11 @@ UOS的内存容量现为８G,这意味这每个UOS节点程序要求自己计算
 内存资金池的初始值参数为500W,所以由第一个公式，当有500W的UOS入场内存时，池中的UOS为1000W，计算出：得到的容量= 总容量/2 = 4GB 。  
 接下来，详细价格如下表：
 
-```text
-                                    ![](https://cdn.nlark.com/yuque/358/2019/png/127101/1554712015489-31603e0c-5670-44b1-80f9-a319e11b6075.png#align=left&display=inline&height=512&originHeight=512&originWidth=451&size=0&status=done&width=451)  
-                                                     UOS内存价格表.png
-```
+![&#x5185;&#x5B58;&#x4EF7;&#x683C;](.gitbook/assets/image.png)
 
 作图如下：
 
-```text
-                                     ![](https://cdn.nlark.com/yuque/358/2019/png/127101/1554712015491-fb3034ed-73e9-42d0-a9cc-d3e002fe5b32.png#align=left&display=inline&height=256&originHeight=256&originWidth=375&size=0&status=done&width=375)  
-                                                       UOS内存价格曲线.png
-```
+![&#x5185;&#x5B58;&#x4EF7;&#x683C;&#x66F2;&#x7EBF;](.gitbook/assets/image%20%281%29.png)
 
 ### 2.3.2 cpu和net
 
@@ -211,8 +205,10 @@ baodaotulong用户抵押了0.1000 UOS的net，已使用了432bytes，可用15.63
 
 > "cpu\_usage\_us": 609 "net\_usage\_words": 16
 
-cpu和net资源的平均使用量，是一种改进的指数移动平均模型：  
-![image.png](https://cdn.nlark.com/yuque/358/2019/png/127101/1554715003701-6f12048e-46fb-4950-b89b-6a8024b47aa4.png#align=left&display=inline&height=38&name=image.png&originHeight=38&originWidth=389&size=3573&status=done&width=389)  
+cpu和net资源的平均使用量，是一种改进的指数移动平均模型：
+
+![](.gitbook/assets/image%20%282%29.png)
+
 其中:  
 VX: 资源的平均使用量；  
 VX’: 上次资源的平均使用量；  
@@ -221,8 +217,10 @@ Precision:精度补偿系数，防止unit过小出现整除为零；
 Windowsize:窗口大小；  
 Futuredistance:上个更新时刻为周期起点，当前时刻离周期终点的距离。  
 当每个块都有更新时，Futuredistance+1 = Windowsize，上试退化成普通的指数平均模型。  
-当前的cpu更新使用量：  
-![image.png](https://cdn.nlark.com/yuque/358/2019/png/127101/1554715224683-20a1980f-0cee-4e07-a28f-0c3579862f9e.png#align=left&display=inline&height=38&name=image.png&originHeight=38&originWidth=210&size=2538&status=done&width=210)  
+当前的cpu更新使用量：
+
+![](.gitbook/assets/image%20%283%29.png)
+
 对某个用户而言，Windowsize的大小是24小时的区块数量。  
 而用户cpu和net资源的可用量与自身抵押和UOS的繁忙程度有关，UOS用虚拟资源的概念表述。UOS上的交易越多，UOS越繁忙，UOS的虚拟资源越少，用户可使用的资源就越少，用户抵押的越多，可使用的资源就越多。实际上，UOS区块的cpu和net的更新使用量计算公式也是依照以上两个公式，不过unit为一个区块总的cpu和net使用量，Windowsize为60。  
 下面的命令是查询UOS系统的全局参数，以cpu为例，当区块的cpu当前更新使用量小于target\_block\_cpu\_usage\_pct\_max\_block\_cpu\_usage，UOS会判定系统处于闲暇，抬升UOS的虚拟cpu大小。反之亦然，虚拟cpu的取值区间为\[max\_block\_cpu\_usage，max\_block\_cpu\_usage\_1000\]。
@@ -455,9 +453,9 @@ cluos -u http://rpc.uos.iccob.com:9008 get table uosio uosio producers
 | remove | uosio | 抵押扣除 | 否 | 否 | 否 |
 
 共识节点的奖池有三个：uosio.bvpay、uosio.bpay 、uosio.vpay  
-他们之间的关系是，uosio.bvpay是奖池源头，uosio.bpay是出块奖池，uosio.vpay是投票奖池。  
-![](https://cdn.nlark.com/yuque/358/2019/png/127101/1554776846545-16377014-3c42-4db1-a48c-c663a4de4131.png#align=left&display=inline&height=322&originHeight=322&originWidth=508&size=0&status=done&width=508)  
-bvpay.jpg
+他们之间的关系是，uosio.bvpay是奖池源头，uosio.bpay是出块奖池，uosio.vpay是投票奖池。
+
+![&#x5956;&#x91D1;&#x6C60;&#x6D41;&#x8F6C;](.gitbook/assets/image%20%284%29.png)
 
 uosio.bvpay奖池源奖金的0.8将会进入出块奖池，奖池源的0.2将会进入投票奖池。  
 查看总奖池：

@@ -19,7 +19,7 @@ sudo ~/uos/install.sh
 5. 修改noduos配置文件<br />
 配置文件路径：~/uos/cfg/config.ini<br />
 (1)修改状态数据库大小，使用free -m 查看当前系统可用内存，最好大于16G可用，如下是把状态数据库配置为30G：<br />
-chain-state-db-size-mb = 30480<br />
+chain-state-db-size-mb = 30480
 
 (2)修改http服务地址，假如您的计算机私网ip为10.186.14.20，启用9008端口，如下配置：<br />
 http-server-address = 10.186.14.20:9008<br />

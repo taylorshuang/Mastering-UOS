@@ -146,8 +146,6 @@ cluos set account permission OTHER_ACCOUNT active '{"threshold": 1,"keys": [{"ke
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-
-
 ##  cluos RPC命令
 
 ### 1 version
@@ -161,6 +159,10 @@ cluos set account permission OTHER_ACCOUNT active '{"threshold": 1,"keys": [{"ke
 #### 1.1 version client
 
 > 检索客户端的版本信息
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -293,6 +295,10 @@ cluos version client
 #### 4.1 get info
 
 > 获取区块链实时信息。
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -500,7 +506,9 @@ cluos get info
 
 **5.4.1 set account permission**
 
-> 参数:
+> 设置处理帐户权限的参数
+>
+> 参数：
 >
 >     account TEXT                string类型，必填，设置权限的账户
 >
@@ -520,7 +528,9 @@ cluos get info
 
 **5.5.1 set action permission**
 
-> 参数:
+> 设置处理帐户权限的参数
+>
+> 参数：
 >
 >     account TEXT                string类型，必填，设置权限的账户
 >
@@ -623,26 +633,50 @@ cluos get info
 #### 8.1 create
 
 > 创建新的钱包。
+>
+> 参数：
+>
+>     无
 
 #### 8.2 open
 
 > 打开钱包。
+>
+> 参数：
+>
+>     无
 
 #### 8.3 lock
 
 > 锁定钱包。
+>
+> 参数：
+>
+>     无
 
 #### 8.4 lock\_all
 
 > 锁定所有钱包。
+>
+> 参数：
+>
+>     无
 
 #### 8.5 unlock
 
 > 解锁钱包。
+>
+> 参数：
+>
+>     无
 
 #### 8.6 import
 
 > 向钱包导入私钥。
+>
+> 参数：
+>
+>     无
 
 #### 8.7 remove\_key
 
@@ -663,18 +697,34 @@ cluos get info
 #### 8.9 list
 
 > 列出所有钱包。
+>
+> 参数：
+>
+>     无
 
 #### 8.10 keys
 
 > 列出钱包中所有公钥。
+>
+> 参数：
+>
+>     无
 
 #### 8.11 private\_keys
 
 > 列出钱包中所有私钥。
+>
+> 参数：
+>
+>     无
 
 #### 8.12 stop
 
 > 停止钱包进程。
+>
+> 参数：
+>
+>     无
 
 ### 9 sign
 

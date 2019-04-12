@@ -8,4 +8,7 @@
 * [第六章 合约开发教程](di-liu-zhang.md)
 * [第七章 插件介绍](di-qi-zhang-cha-jian-jie-shao.md)
 * [第八章 kuosd](di-ba-zhang-kuosd.md)
+* [第九章 noduos](di-jiu-zhang-noduos.md)
+* [第十章 cluos](di-shi-zhang-cluos.md)
+* [第十一章 kuosd](di-shi-yi-zhang-kuosd.md)
 

@@ -10,5 +10,11 @@
 * [第八章 kuosd](di-ba-zhang-kuosd.md)
 * [第九章 noduos](di-jiu-zhang-noduos.md)
 * [第十章 cluos](di-shi-zhang-cluos.md)
-* [第十一章 kuosd](di-shi-yi-zhang-kuosd.md)
+* [第十一章 kuosd](di-shi-yi-zhang-uosio.cdt.md)
+* [第十二章 kuosd](di-shi-er-zhang-uosjs-zan-wu.md)
+* [第十三章 kuosd](di-shi-san-zhang-DApp-kai-fa.md)
+* [第十四章 kuosd](di-shi-si-zhang-qu-zhong-xin-hua-jiao-yi-suo-zan-wu.md)
+* [第十五章 kuosd](di-shi-wu-zhang-xiang-guang-shu-yu.md)
+* [第十六章 kuosd](di-shi--zhang-she-qu-xiang-mu-zan-wu.md)
+
 

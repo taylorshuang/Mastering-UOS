@@ -2,9 +2,9 @@
 
 * [Introduction](README.md)
 * [第一章 介绍](chapter1.md)
-* [第二章 基本概念](di-er-zhang-ji-ben-gai-nian.md)
-* [第三章 代币合约](di-san-zhang-dai-bi-he-yue.md)
-* [第四章  节点部署](di-si-zhang-jie-dian-bu-shu.md)
+* [第二章  节点部署](di-er-zhang-jie-dian-bu-shu.md)
+* [第三章 基本概念](di-san-zhang-ji-ben-gai-nian.md)
+* [第四章 代币合约](di-si-zhang-dai-bi-he-yue.md)
 * [第五章 智能合约介绍](di-wu-zhang-zhi-neng-he-yue-jie-shao.md)
 * [第六章 合约开发教程](di-liu-zhang.md)
 * [第七章 插件介绍](di-qi-zhang-cha-jian-jie-shao.md)

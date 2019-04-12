@@ -1,45 +1,45 @@
-# 第四章  节点部署
+# 第二章  节点部署
 
 ## 节点部署
 
 ## 主网节点部署
 
-1. 下载安装文件  wget [ftp://tools.ulord.one/UOS\_Mainnet.tar.gz](di-si-zhang-jie-dian-bu-shu.md)
+1. 下载安装文件  wget [ftp://tools.ulord.one/UOS\_Mainnet.tar.gz](di-er-zhang-jie-dian-bu-shu.md)
 2. 将UOS\_Mainnet.tar.gz放到当前用户的根目录下并解压文件  tar -zxvf ~/UOS\_Mainnet.tar.gz
 3. 修改文件执行权限  chmod +x ~/uos/noduos ~/uos/cluos ~/uos/kuosd ~/uos/install.sh  ~/uos/uninstall.sh
 4. 安装uos程序  sudo ~/uos/install.sh
 5. 修改noduos配置文件  配置文件路径：~/uos/cfg/config.ini
 
 > \(1\)修改状态数据库大小，使用free -m 查看当前系统可用内存，最好大于16G可用，如下是把状态数据库配置为30G：  
->  chain-state-db-size-mb = 30480 
+> chain-state-db-size-mb = 30480
 >
 > \(2\)修改http服务地址，假如您的计算机私网ip为10.186.14.20，启用9008端口，如下配置：  
->  http-server-address = 10.186.14.20:9008
+> http-server-address = 10.186.14.20:9008
 >
 > \(3\)修改端口映射，即映射\(2\)中的服务端口。假如您的公网ip为114.61.17.245，如下配置：  
->  http-alias = 114.61.17.245:9008
+> http-alias = 114.61.17.245:9008
 >
 > \(4\)修改p2p服务地址。假如您的计算机私网ip为10.186.14.20，启用12008端口做为数据同步端口，如下设置：  
->  p2p-listen-endpoint = 10.186.14.20:12008
+> p2p-listen-endpoint = 10.186.14.20:12008
 >
 > \(5\)修改p2p服务端口地址映射，即映射\(4\)中的服务端口。假如您的公网ip为114.61.17.245，如下配置：  
->  p2p-server-address = 114.61.17.245:12008
+> p2p-server-address = 114.61.17.245:12008
 >
 > \(6\)增加p2p peer地址。这里是指其它机器的服务地址。这里可以指定多个地址,目前主网可用的部分p2p地址如下:
 >
 > p2p-peer-address = 114.67.37.75:9660  
->  p2p-peer-address = 114.67.37.76:9660  
->  p2p-peer-address = 124.232.147.65:7020  
->  p2p-peer-address = rpc.uos.iccob.com:12008  
->  p2p-peer-address = 111.204.209.105:11111  
->  p2p-peer-address = uos.chainclub.one:12008  
->  p2p-peer-address = 27.128.165.213:12008
+> p2p-peer-address = 114.67.37.76:9660  
+> p2p-peer-address = 124.232.147.65:7020  
+> p2p-peer-address = rpc.uos.iccob.com:12008  
+> p2p-peer-address = 111.204.209.105:11111  
+> p2p-peer-address = uos.chainclub.one:12008  
+> p2p-peer-address = 27.128.165.213:12008
 
 6.修改节点名称  
- agent-name = "myname"
+agent-name = "myname"
 
 7.打开上面服务器的配置的端口  
- sudo ufw allow 9008 12008
+sudo ufw allow 9008 12008
 
 8.运行noduos程序
 
@@ -51,43 +51,44 @@ noduos --genesis-json ~/uos/cfg/genesis.json --config-dir ~/uos/cfg/ --data-dir 
 nohup noduos --genesis-json ~/uos/cfg/genesis.json --config-dir ~/uos/cfg/ --data-dir ~/uosdata &
 ```
 
-此时节点开始运行，从别的节点同步区块，同步完成后方可接受实时交易。  
-
+此时节点开始运行，从别的节点同步区块，同步完成后方可接受实时交易。
 
 ## UOS生产节点部署及申请
 
 ### 概述
 
-     UOS采用DPOS共识，DPOS类似董事会投票，持币者投出一定数量的节点，代理其进行验证和记账，大幅缩小参与验证和记账节点的数量，可以达到秒级的共识验证。我们称这部分被选出来的节点为生产节点或BP节点。  
+```text
+ UOS采用DPOS共识，DPOS类似董事会投票，持币者投出一定数量的节点，代理其进行验证和记账，大幅缩小参与验证和记账节点的数量，可以达到秒级的共识验证。我们称这部分被选出来的节点为生产节点或BP节点。  
+```
+
 BP节点将为  
-     UOS网络提供算力和带宽支持，它们的主要任务就是收集交易信息将其打包进区块，并将区块广播给其他节点，通过验证后再将区块上传至区块链。同时，BP节点还将拥有 UOS 生态的投票权，2/3以上的BP节点投票将使得链上的决策（提案）生效。  
+UOS网络提供算力和带宽支持，它们的主要任务就是收集交易信息将其打包进区块，并将区块广播给其他节点，通过验证后再将区块上传至区块链。同时，BP节点还将拥有 UOS 生态的投票权，2/3以上的BP节点投票将使得链上的决策（提案）生效。  
 申请成为BP节点对服务器有较高的要求；同时，需要抵押100000 UOS。  
 当然，成为BP节点可获取奖励，包含出块奖励和投票奖励。同时，为保证链的安全和稳定，BP可以投出作恶或者性能不好的BP节点，一旦BP节点被投出，将扣除其押金和（未领取的）奖励；并将该账户移入黑名单。
 
 ### 部署
 
-1.从网站上下载安装文件（该文档中下载文件存放在当前用户根目录）   
-wget [ftp://tools.ulord.one/UOS\_Testnet.tar.gz](di-si-zhang-jie-dian-bu-shu.md)
+1.从网站上下载安装文件（该文档中下载文件存放在当前用户根目录）  
+wget [ftp://tools.ulord.one/UOS\_Testnet.tar.gz](di-er-zhang-jie-dian-bu-shu.md)
 
 2.解压下载的文件  
 tar -zxvf ~/UOS\_Testnet.tar.gz
 
-3.修改文件执行权限   
+3.修改文件执行权限  
 chmod +x ~/uos/noduos ~/uos/cluos ~/uos/kuosd ~/uos/install.sh ~/uos/uninstall.sh  
 ~/uos/mongodb/bin/mongod
 
 4.安装uos程序  
- sudo ~/uos/install.sh
+sudo ~/uos/install.sh
 
 5.修改noduos配置文件 配置文件路径：  
 ~/uos/cfg/config.ini
 
- \(1\)修改状态数据库大小，使用free -m 查看当前系统可用内存，最好大于16G可用，下面是把状态数据库配置为20G大小：   
+\(1\)修改状态数据库大小，使用free -m 查看当前系统可用内存，最好大于16G可用，下面是把状态数据库配置为20G大小：  
 chain-state-db-size-mb = 20480
 
-\(2\)修改http服务地址,假如您的计算机私网ip为10.186.14.20，启用9008端口，如下配置：   
-http-server-address = 10.186.14.20:9008  
-
+\(2\)修改http服务地址,假如您的计算机私网ip为10.186.14.20，启用9008端口，如下配置：  
+http-server-address = 10.186.14.20:9008
 
 \(3\)修改端口映射，即映射\(2\)中的服务端口。假如您的公网ip为114.61.17.245,如下配置：  
 http-alias =114.61.17.245:9008 如果只有一个公网ip地址，此项与http-server-address填写一致，即：  
@@ -129,8 +130,8 @@ plugin= uosio::net\_api\_plugin
 7.运行noduos程序
 
 前台运行命令：  
-noduos --genesis-json ~/uos/cfg/genesis.json --config-dir ~/uos/cfg/ --data-dir ~/uos/data  
-   
+noduos --genesis-json ~/uos/cfg/genesis.json --config-dir ~/uos/cfg/ --data-dir ~/uos/data
+
 后台运行命令：  
 nohup noduos --genesis-json ~/uos/cfg/genesis.json --config-dir ~/uos/cfg/ --data-dir ~/uos/data &
 
@@ -177,7 +178,7 @@ cluos system undelegatebw testaccount2 testaccount2 "50000.0000 UOS" "50000.0000
 #### 暂停
 
 生节点由于硬件维护原因暂时不能出块，申请暂时退出，命令如下：  
-cluos push action uosio unregprod '\["uosgenesuser","0"\]' -p uosgenesuser[@active ](di-si-zhang-jie-dian-bu-shu.md)
+cluos push action uosio unregprod '\["uosgenesuser","0"\]' -p uosgenesuser[@active ](di-er-zhang-jie-dian-bu-shu.md)
 
 查看暂停是否成功：（成功，则is\_active的值置为0）  
 cluos get table uosio uosio producers
@@ -227,21 +228,21 @@ UOS，正式链将会扣除100000 UOS。移除之后，该账户无法再次申�
 生产节点需要自行领取奖励，每天可领取一次，申领命令如下：  
 cluos system claimrewards testaccount2
 
-已经被移除的生产节点则无法领取奖励。如下图，领取奖励将报错：  
-
+已经被移除的生产节点则无法领取奖励。如下图，领取奖励将报错：
 
 ## 测试网节点部署
 
-1. 测试网的节点部署与主链节点部署基本一致， 其安装文件的下载 wget [ftp://tools.ulord.one/UOS\_Testnet.tar.gz](di-si-zhang-jie-dian-bu-shu.md) 
+1. 测试网的节点部署与主链节点部署基本一致， 其安装文件的下载 wget [ftp://tools.ulord.one/UOS\_Testnet.tar.gz](di-er-zhang-jie-dian-bu-shu.md) 
 2. 然后进行解压： tar -zxvf ~/UOS\_Testnet.tar.gz 
-3.  后面的步骤与主网的一致，直到”增加p2p peer地址”的时候，填写 p2p-peer-address = 114.67.37.2:20581 p2p-peer-address= 114.67.37.245:12008 程序的启动方法与主网一致。 
+3. 后面的步骤与主网的一致，直到”增加p2p peer地址”的时候，填写 p2p-peer-address = 114.67.37.2:20581 p2p-peer-address= 114.67.37.245:12008 程序的启动方法与主网一致。 
 
 ## 搭建UOS节点私网
 
-  
-     为方便我们的测试与开发，我们可以搭建自己的UOS私有网络，可以使用多台机器搭建，也可以使用一台机器搭建，注意一下端口配置即可，下面我们来使用ip为10.186.11.110的一台机器来构建我们的私网。  
-   
- 注：在此之前，如果没有安装UOS程序，请先按照主网或者测试网节点部署里的说明下载与安装UOS程序。
+```text
+ 为方便我们的测试与开发，我们可以搭建自己的UOS私有网络，可以使用多台机器搭建，也可以使用一台机器搭建，注意一下端口配置即可，下面我们来使用ip为10.186.11.110的一台机器来构建我们的私网。  
+```
+
+注：在此之前，如果没有安装UOS程序，请先按照主网或者测试网节点部署里的说明下载与安装UOS程序。
 
 1. **创建密匙**
 
@@ -290,14 +291,13 @@ Private key:5JcNjjvZBPTqjjBnnqfdP3TBn19nMACr5zbN88KTcpCwV8vqyuz
 Public key:UOS8gqvsvhd8TBLvFdTxtPbDmcR4MyuLWUmJBtJUkoMt9TjT2Fm1C
 ```
 
-  
 注：其中marsaccount3、uosvegasjack、dragonexsafe表示三个bp用户，将来用于出块,而其中超级用户uosio的密匙是默认产生的，不要手动产生，直接使用即可。
 
 **2.创建钱包与导入密匙**
 
 我们创建一个钱包，并将密匙导入到钱包中：  
-cluos wallet create -n uos --to-console  
-   
+cluos wallet create -n uos --to-console
+
 请把返回的钱包密匙妥善保管，用于将来解锁钱包。下面将密匙导入到钱包中，用来签名我们的交易:
 
 ```text
@@ -337,7 +337,6 @@ noduos  -p uosvegasjack -d ~/uosdata/uosvegasjack --http-server-address 10.186.1
 noduos  -p dragonexsafe -d ~/uosdata/dragonexsafe --http-server-address 10.186.11.110:6003 --p2p-listen-endpoint 10.186.11.110:7003 --plugin uosio::net_plugin --plugin uosio::net_api_plugin --plugin uosio::chain_plugin --plugin uosio::chain_api_plugin   --p2p-peer-address 10.186.11.110:7000 --p2p-peer-address 10.186.11.110:7001 --p2p-peer-address 10.186.11.110:7002 --signature-provider UOS8gqvsvhd8TBLvFdTxtPbDmcR4MyuLWUmJBtJUkoMt9TjT2Fm1C=KEY:5JcNjjvZBPTqjjBnnqfdP3TBn19nMACr5zbN88KTcpCwV8vqyuz  --delete-all-blocks &
 ```
 
-  
 运行后，可以看到这三个节点在同步区块，生产区块的为uosio用户。
 
 5.**创建系统用户**
@@ -392,6 +391,5 @@ cluos  -u http://10.186.11.110:6000 system voteproducer prods uosvegasjack "2000
 cluos  -u http://10.186.11.110:6000 system voteproducer prods dragonexsafe "1200000.0000 UOS" dragonexsafe
 ```
 
-  
 投完票后，可以看到三个bp用户 marsaccount3、uosvegasjack、dragonexsafe开始产生区块，私网搭建成功。
 

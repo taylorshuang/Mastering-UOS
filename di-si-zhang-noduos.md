@@ -4,11 +4,11 @@
 
 UOSIO附带了许多程序。您将使用的主要部分以及此处涉及的部分是：noduos、cluos、kuosd。
 
-noduos（node + uos） - 核心UOSIO 节点守护程序，可以配置插件来运行节点。如：生产区块，专用API节点和本地开发等。
-
-cluos （cli + uos） - 命令行界面，用于与区块链交互并管理钱包。
-
-kuosd （key + uos） - 将UOSIO密钥安全存储在钱包中的组件。
+> noduos（node + uos） - 核心UOSIO 节点守护程序，可以配置插件来运行节点。如：生产区块，专用API节点和本地开发等。
+>
+> cluos （cli + uos） - 命令行界面，用于与区块链交互并管理钱包。
+>
+> kuosd （key + uos） - 将UOSIO密钥安全存储在钱包中的组件。
 
 ### **运行noduos**
 
@@ -75,7 +75,7 @@ Application Command Line Options:
                                         for library users
 ```
 
-插件选项
+**插件选项**
 
 有关每个插件的详细信息，请参阅插件的文档：
 
@@ -99,13 +99,13 @@ txn_test_gen_plugin
 
 #### **get\_info**
 
-返回包含区块链的各种详细信息的对象。
-
-https：//rpc1.uosio.org:8250/v1/chain/get\_info
-
-参数：
-
-    无
+> 返回包含区块链的各种详细信息的对象。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/get\_info
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -116,13 +116,15 @@ get_block
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-返回一个对象，其中包含有关区块链上特定块的各种详细信息。
+#### get\_block
 
-https：//rpc1.uosio.org:8250/v1/chain/get\_block
-
-参数：
-
-    block\_num\_or\_id : string类型，区块高度或区块ID
+> 返回一个对象，其中包含有关区块链上特定块的各种详细信息。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/get\_block
+>
+> 参数：
+>
+>     block\_num\_or\_id : string类型，区块高度或区块ID
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -134,13 +136,13 @@ curl --request POST --url https://rpc1.uosio.org:8250 /v1/chain/get_block --data
 
 #### **get\_account**
 
-返回一个对象，其中包含有关区块链上特定帐户的各种详细信息。
-
-https：//rpc1.uosio.org:8250/v1/chain/get\_account
-
-参数：
-
-    account\_name ：string类型，账户名
+> 返回一个对象，其中包含有关区块链上特定帐户的各种详细信息。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/get\_account
+>
+> 参数：
+>
+>     account\_name ：string类型，账户名
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -152,13 +154,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/get_account --dat
 
 #### **get\_abi**
 
-返回某个账户下的智能合约abi信息。
-
-https：//rpc1.uosio.org:8250/v1/chain/get\_abi
-
-参数：
-
-    account\_name ：string类型，账户名
+> 返回某个账户下的智能合约abi信息。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/get\_abi
+>
+> 参数：
+>
+>     account\_name ：string类型，账户名
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -170,13 +172,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/get_abi --data '{
 
 #### **get\_code**
 
-返回一个对象，其中包含区块链上特定智能合约的各种详细信息。
-
-https：//rpc1.uosio.org:8250/v1/chain/get\_code
-
-参数：
-
-    account\_name ：string类型，账户名
+> 返回一个对象，其中包含区块链上特定智能合约的各种详细信息。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/get\_code
+>
+> 参数：
+>
+>     account\_name ：string类型，账户名
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -188,13 +190,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/get_code --data '
 
 #### **get\_raw\_code\_and\_abi**
 
-返回一个对象，其中包含区块链上特定智能合约的各种详细信息及abi。
-
-https：//rpc1.uosio.org:8250/v1/chain/get\_raw\_code\_and\_abi
-
-参数：
-
-    account\_name ：string类型，账户名
+> 返回一个对象，其中包含区块链上特定智能合约的各种详细信息及abi。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/get\_raw\_code\_and\_abi
+>
+> 参数：
+>
+>     account\_name ：string类型，账户名
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -206,31 +208,31 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/get_raw_code_and_
 
 #### **get\_table\_rows**
 
-返回一个对象，该对象为指定表中的行。
-
-https：//rpc1.uosio.org:8250/v1/chain/get\_table\_rows
-
-参数：
-
-    scope : string类型，必填，帐户名称
-
-    code: string类型，必填，智能合约名称
-
-    table : string类型，必填，表名称
-
-    json : boolean类型，默认true
-
-    lower\_bound : string类型，可选，下限
-
-    upper\_bound : string类型，可选，上限
-
-    limit : int32类型，可选，限制返回数据条数，默认10
-
-    index\_position : string类型，要使用的索引序号，例如，主键索引为1或primary，次级索引为2或secondary，默认值：1
-
-    key\_type : string类型，索引键类型，例如i64
-
-    encode\_type : string类型，编码类型，dec或hex,默认值：dec
+> 返回一个对象，该对象为指定表中的行。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/get\_table\_rows
+>
+> 参数：
+>
+>     scope : string类型，必填，帐户名称
+>
+>     code: string类型，必填，智能合约名称
+>
+>     table : string类型，必填，表名称
+>
+>     json : boolean类型，默认true
+>
+>     lower\_bound : string类型，可选，下限
+>
+>     upper\_bound : string类型，可选，上限
+>
+>     limit : int32类型，可选，限制返回数据条数，默认10
+>
+>     index\_position : string类型，要使用的索引序号，例如，主键索引为1或primary，次级索引为2或secondary，默认值：1
+>
+>     key\_type : string类型，索引键类型，例如i64
+>
+>     encode\_type : string类型，编码类型，dec或hex,默认值：dec
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -242,17 +244,17 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/get_table_rows --
 
 #### **get\_currency\_balance**
 
-获取指定账户下货币余额。
-
-https：//rpc1.uosio.org:8250/v1/chain/get\_currency\_balance
-
-参数：
-
-    code : string类型，合约名称
-
-    account\_name：string类型，所要查询的账户
-
-    symbol ：string类型，可选，要查询的货币符号（不写则列出所有）
+> 获取指定账户下货币余额。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/get\_currency\_balance
+>
+> 参数：
+>
+>     code : string类型，合约名称
+>
+>     account\_name：string类型，所要查询的账户
+>
+>     symbol ：string类型，可选，要查询的货币符号（不写则列出所有）
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -264,15 +266,15 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/get_currency_bala
 
 #### **get\_currency\_stats**
 
-返回指定货币的状态信息。
-
-https：//rpc1.uosio.org:8250/v1/chain/get\_currency\_stats
-
-参数：
-
-    code : string参数，合约名称
-
-    symbol : string类型，统计数据的货币符号
+> 返回指定货币的状态信息。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/get\_currency\_stats
+>
+> 参数：
+>
+>     code : string参数，合约名称
+>
+>     symbol : string类型，统计数据的货币符号
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -284,17 +286,17 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/get_currency_stat
 
 #### **get\_producers**
 
-返回生产节点信息。
-
-https：//rpc1.uosio.org:8250/v1/chain/get\_producers
-
-参数：
-
-    limit : uint32类型，要检索的生产者总数
-
-    lower\_bound : string类型，下限
-
-    json : boolean类型，以JSON格式返回结果
+> 返回生产节点信息。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/get\_producers
+>
+> 参数：
+>
+>     limit : uint32类型，要检索的生产者总数
+>
+>     lower\_bound : string类型，下限
+>
+>     json : boolean类型，以JSON格式返回结果
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -306,15 +308,15 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/get_producers --d
 
 #### **get\_required\_kes**
 
-返回签名一个事务所需的公钥清单。
-
-curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/ get\_required\_keys
-
-参数：
-
-    transaction : json类型，事务
-
-    available\_keys : string数组，公钥集合
+> 返回签名一个事务所需的公钥清单。
+>
+> URL：https://rpc1.uosio.org:8250/v1/chain/ get\_required\_keys
+>
+> 参数：
+>
+>     transaction : json类型，事务
+>
+>     available\_keys : string数组，公钥集合
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -326,17 +328,17 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/get_required_keys
 
 #### **abi\_json\_to\_bin**
 
-将json格式内容转换成十六进制字符串
-
-https：//rpc1.uosio.org:8250/v1/chain/abi\_json\_to\_bin
-
-参数：
-
-    code : string类型，合约名称
-
-    action : string类型，action名称
-
-    args : json类型，action参数
+> 将json格式内容转换成十六进制字符串
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/abi\_json\_to\_bin
+>
+> 参数：
+>
+>     code : string类型，合约名称
+>
+>     action : string类型，action名称
+>
+>     args : json类型，action参数
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -348,17 +350,17 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/abi_json_to_bin -
 
 #### **abi\_bin\_to\_json**
 
-将十六进制字符串转换为json格式。
-
-https：//rpc1.uosio.org:8250/v1/chain/abi\_bin\_to\_json
-
-参数：
-
-    code : string类型，合约名称
-
-    action : string类型，action名称
-
-    binargs : string类型，action的十六进制格式
+> 将十六进制字符串转换为json格式。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/abi\_bin\_to\_json
+>
+> 参数：
+>
+>     code : string类型，合约名称
+>
+>     action : string类型，action名称
+>
+>     binargs : string类型，action的十六进制格式
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -370,17 +372,17 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/abi_bin_to_json -
 
 **push\_transaction**
 
-向链上推送事务。
-
-https：//rpc1.uosio.org:8250/v1/chain/push\_transaction
-
-参数：
-
-    compression : string类型，是否压缩
-
-    transaction : json类型，事务
-
-    signatures : string类型，签名集合
+> 向链上推送事务。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/chain/push\_transaction
+>
+> 参数：
+>
+>     compression : string类型，是否压缩
+>
+>     transaction : json类型，事务
+>
+>     signatures : string类型，签名集合
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -394,17 +396,17 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/push_transaction 
 
 #### **get\_actions**
 
-返回action详情。
-
-https：//rpc1.uosio.org:8250/v1/history/get\_actions
-
-参数：
-
-    pos ： int32类型
-
-    offset ： int32类型
-
-    account\_name ： string类型,账户名
+> 返回action详情。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/history/get\_actions
+>
+> 参数：
+>
+>     pos ： int32类型
+>
+>     offset ： int32类型
+>
+>     account\_name ： string类型,账户名
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -416,13 +418,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/history/get_actions --d
 
 #### **get\_transaction**
 
-返回事务详情。
-
-https：//rpc1.uosio.org:8250/v1/history/get\_transaction
-
-参数：
-
-    id ： string类型，事务ID
+> 返回事务详情。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/history/get\_transaction
+>
+> 参数：
+>
+>     id ： string类型，事务ID
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -434,13 +436,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/history/get_transaction
 
 #### **get\_key\_accounts**
 
-返回给定某个公钥下的所有账户。
-
-https：//rpc1.uosio.org:8250/v1/history/get\_key\_accounts
-
-参数：
-
-    public\_key : string类型，公钥
+> 返回给定某个公钥下的所有账户。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/history/get\_key\_accounts
+>
+> 参数：
+>
+>     public\_key : string类型，公钥
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -452,13 +454,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/history/get_key_account
 
 #### **get\_controlled\_accounts**
 
-返回控制的账户。
-
-https：//rpc1.uosio.org:8250/v1/history/get\_controlled\_accounts
-
-参数:
-
-    controlling\_account : string类型，账户名
+> 返回控制的账户。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/history/get\_controlled\_accounts
+>
+> 参数:
+>
+>     controlling\_account : string类型，账户名
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -472,13 +474,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/history/get_controlled_
 
 #### **connect**
 
-连接某个节点。
-
-https：//rpc1.uosio.org:8250/v1/net/connect
-
-参数：
-
-    string类型
+> 连接某个节点。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/net/connect
+>
+> 参数：
+>
+>     string类型
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -490,13 +492,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/net/connect --data '"ht
 
 #### **disconnect**
 
-断开与某个节点的连接。
-
-https：//rpc1.uosio.org:8250/v1/net/disconnect
-
-参数：
-
-    string类型
+> 断开与某个节点的连接。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/net/disconnect
+>
+> 参数：
+>
+>     string类型
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -508,9 +510,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/net/disconnect --data '
 
 #### **status**
 
-返回与某个节点的连接状态。
-
-https：//rpc1.uosio.org:8250/v1/net/status
+> 返回与某个节点的连接状态。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/net/status
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -522,9 +528,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/net/status --data '"htt
 
 #### **connections**
 
-返回所有的连接节点的信息。
-
-https：//rpc1.uosio.org:8250/v1/net/status
+> 返回所有的连接节点的信息。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/net/status
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -538,9 +548,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/net/connections
 
 #### **pause**
 
-暂停。
-
-https：//rpc1.uosio.org:8250/v1/producer/pause
+> 暂停。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/producer/pause
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -552,9 +566,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/producer/pause
 
 #### **resume**
 
-重新提交。
-
-https：//rpc1.uosio.org:8250/v1/producer/resume
+> 重新提交。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/producer/resume
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -566,9 +584,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/producer/resume
 
 **paused**
 
-返回暂停的生产节点。
-
-https：//rpc1.uosio.org:8250/v1/producer/paused
+> 返回暂停的生产节点。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/producer/paused
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -580,9 +602,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/producer/paused
 
 #### **get\_runtime\_options**
 
-获取运行时选项。
-
-https：//rpc1.uosio.org:8250/v1/producer/get\_runtime\_options
+> 获取运行时选项。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/producer/get\_runtime\_options
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -594,9 +620,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/producer/get_runtime_op
 
 #### **get\_greylist**
 
-返回生产节点灰名单
-
-https：//rpc1.uosio.org:8250/v1/producer/get\_greylist
+> 返回生产节点灰名单
+>
+> URL：https：//rpc1.uosio.org:8250/v1/producer/get\_greylist
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -608,13 +638,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/producer/get_greylist
 
 #### **add\_greylist\_accounts**
 
-将账户添加到灰名单。
-
-https：//rpc1.uosio.org:8250/v1/producer/add\_greylist\_accounts
-
-参数:
-
-     account\_name：string数组类型，帐户名
+> 将账户添加到灰名单。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/producer/add\_greylist\_accounts
+>
+> 参数:
+>
+>      account\_name：string数组类型，帐户名
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -626,13 +656,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/producer/add_greylist_a
 
 #### **remove\_greylist\_accounts**
 
-将账户从灰名单移除。
-
-https：//rpc1.uosio.org:8250/v1/producer/remove\_greylist\_accounts
-
-参数：
-
-    account\_name：string数组类型，帐户名
+> 将账户从灰名单移除。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/producer/remove\_greylist\_accounts
+>
+> 参数：
+>
+>     account\_name：string数组类型，帐户名
 
 ```text
 curl --request POST --url https://rpc1.uosio.org:8250/v1/producer/remove_greylist_accounts --data '{"accounts":["usera"]}'
@@ -640,9 +670,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/producer/remove_greylis
 
 #### **get\_whitelist\_blacklist**
 
-返回生产节点白名单和黑名单。
-
-https：//rpc1.uosio.org:8250/v1/producer/get\_whitelist\_blacklist
+> 返回生产节点白名单和黑名单。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/producer/get\_whitelist\_blacklist
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -654,23 +688,23 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/producer/get_whitelist_
 
 #### **set\_whitelist\_blacklist**
 
-设置生产节点白名单和黑名单。
-
-https：//rpc1.uosio.org:8250/v1/producer/get\_whitelist\_blacklist
-
-参数：
-
-    actor\_whitelist：string类型，账户名
-
-    actor\_blacklist：string类型，账户名
-
-    contract\_whitelist：string类型，合约名称
-
-    contract\_blacklist：string类型，合约名称
-
-    action\_blacklist：string类型，action名称
-
-    key\_blacklist：string类型，公钥
+> 设置生产节点白名单和黑名单。
+>
+> URL：https：//rpc1.uosio.org:8250/v1/producer/get\_whitelist\_blacklist
+>
+> 参数：
+>
+>     actor\_whitelist：string类型，账户名
+>
+>     actor\_blacklist：string类型，账户名
+>
+>     contract\_whitelist：string类型，合约名称
+>
+>     contract\_blacklist：string类型，合约名称
+>
+>     action\_blacklist：string类型，action名称
+>
+>     key\_blacklist：string类型，公钥
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}

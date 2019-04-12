@@ -6,7 +6,7 @@ description: >-
 
 # 第六章 基本概念
 
-## 2.1 账户
+## 6.1 账户
 
 账户是对UOS用户的指代，于UOS而言，每一个账户即一个用户。UOS账户名称由小写字母a-z,数字1-5组成，普通用户的长度为12位，小于12位的称为短号，短号要通过竞拍，或者由其他短号创建获得。  
 用命令查看一个UOS的账户：
@@ -44,7 +44,7 @@ producers:
 
 一个账户的基本信息包含权限组成、内存信息、cpu信息、net信息、余额信息、投票信息。
 
-### 2.1.1 权限组成
+### 6.1.1 权限组成
 
 UOS的账户默认有两个权限：owner和active。拥有对应权限的私钥，便可以用使用该用户的相应权限。active权限用来进行一般操作，比如转账、购买内存、抵押、投票调用一般合约。owner权限能行使active权限的一切操作，并且能够修改用户的active权限组成和owner权限组成。  
 比如：baodaotulong的owner和active权限均是由公钥组成：
@@ -60,11 +60,11 @@ UOS的账户默认有两个权限：owner和active。拥有对应权限的私钥
 active的后的第一个“１”是**权限阈值，公钥前面的“１”是该公钥的权重，要解锁某一权限，需要权限私钥对应的权重之和要能大于或等于权限阈值。关于权限更多介绍，可以跳转到**[**多重签名章节**](https://mastering-uos.gitbook.io/mastering-uos/di-er-zhang-ji-ben-gai-nian#24-duo-zhong-qian-ming)**。**  
 内存信息、cpu信息、net信息和投票信息将在以后的章节中介绍。
 
-## 2.2 交易
+## 6.2 交易
 
 UOS中，任何一个操作最后均归结为合约的调用，**交易实际是由用户授权的一个或多个合约调用的组合。**
 
-### 2.2.1 交易组成
+### 6.2.1 交易组成
 
 一个交易包含一个或多个action,每一个action对应一次合约的直接调用。比如一条转账交易，是调用uosio.token合约的transfer操作，一条交易可以用一个json来描述，可以通过http命令把某个合法交易的json发送给节点打包执行。如id为如下的交易
 
@@ -114,7 +114,7 @@ max\_cpu\_usage\_ms：交易的cpu使用上限，为０不受限制
 delay\_sec：交易的延迟时间，为０代表非延迟交易  
 context\_free\_actions：上下文无关的行为。
 
-### 2.2.3 actions
+### 6.2.3 actions
 
 此交易的具体调用的合约，上文中的转账交易直接调用的合约的文字解释如下：
 
@@ -128,13 +128,13 @@ uosiopokerbp用户使用自己的active权限，调用是uosio.token合约的tra
 }
 ```
 
-### 2.2.4 signatures
+### 6.2.4 signatures
 
 此交易的签名。需要与actions声明的调用权限一致，如果声明了uosiopokerbp的active权限，就需要用uosiopokerbp账号active权限的权限私钥进行签名。  
 在区块链浏览器上查看这条交易：  
 [https://explorer.uosio.org/transactions/5513440/366616970c7995a935e3263571bd543937a6512cc358c66a91ed449fbb0dcd21](https://explorer.uosio.org/transactions/5513440/366616970c7995a935e3263571bd543937a6512cc358c66a91ed449fbb0dcd21)
 
-## 2.3 内存、cpu、net
+## 6.3 内存、cpu、net
 
 uos的资源包含：cpu、net、内存\(ram\)。用户的每个操作都需要链来执行，执行需要花费一定的cpu资源，而每个操作都是用数据来进行表达的，需要在区块中占据一定的容量，用net资源计量。合约需要非易失性的存储某些数据，事实上，这些非易失性数据是存在与每一个节点上，是物理受限的，这些以ram计量。  
 这一节我们还是用“baodaotulong”这个账号举例：
@@ -176,7 +176,7 @@ producers:
 取消抵押：cluos system undelegatebw ......
 ```
 
-### 2.3.1 内存
+### 6.3.1 内存
 
 UOS的节点本质运行在具体的物理计算机上的一个程序，这个程序将一些常用的数据储存在计算机的内存之中，账户的基本信息便是其中的一种。由于UOS的区块链特性，为了确保“共识”的准确，每一个节点运行的程序是一样的，所以每一个节点的UOS程序在内存中存储的是同一份状态数据，因此内存资源的容量于节点数目无关，并不会因为节点的增多而增多。因为计算机物理内存资源有限并且成本高昂，所以UOS的内存是付费使用的。  
 比如：baodaotulong购买了“3.491KB”的内存，已经使用了“3.49KB”的内存，那么他只有0.001KB的内存用来存放自己的某些数据了。  
@@ -197,7 +197,7 @@ UOS的内存容量现为８G,这意味这每个UOS节点程序要求自己计算
 
 ![&#x5185;&#x5B58;&#x4EF7;&#x683C;&#x66F2;&#x7EBF;](.gitbook/assets/nei-cun-jia-ge-qu-xian.png)
 
-### 2.3.2 cpu和net
+### 6.3.2 cpu和net
 
 在考虑UOS资源的时候,要意识到UOS的节点是运行在真实计算机上的一个进程，并且每台这样的计算机运行的程序都是一致的，故UOS的资源并不因为节点的增加而增加。一个交易传输到UOS的出块节点，该节点会先执行这个交易，然后打包进区块。因此，UOS的cpu描述的是交易执行所需要的时间，net描述的是交易本身所占容量的大小。cpu和net是可再生资源，用户使用后，无论多少，都会随时间慢慢恢复，可用的总量与自己的抵押有关。  
 baodaotulong用户抵押了0.1000 UOS的cpu，已使用了 2.939ms，可用 2.122s，意味着baodaotulong在接下来的24小时内，如果发起交易，则这些交易的执行时间之和不能大于2.122s。  
@@ -272,11 +272,11 @@ cluos -u https://rpc3.uosio.org:8080 get table uosio uosio global
 }
 ```
 
-## 2.4 多重签名
+## 6.4 多重签名
 
 UOS的多重签名有两种方式：一种是手动多重签名，一种是利用uosio.msig合约进行多重签名。
 
-### 2.4.1 手动多重签名
+### 6.4.1 手动多重签名
 
 设置baodaotulong的账户的active权限为多公钥控制：
 
@@ -363,7 +363,7 @@ cluos -u http://rpc.uos.iccob.com:9008 push transaction -s tr.json
 
 浏览器查询：[https://explorer.uosio.org/transactions/5999587/41454b52b491f22468abbe8967df570a4961b63452cdb20743e65885b6bca7c0](https://explorer.uosio.org/transactions/5999587/41454b52b491f22468abbe8967df570a4961b63452cdb20743e65885b6bca7c0)
 
-### 2.4.2 调用uosio.msig合约的多重签名
+### 6.4.2 调用uosio.msig合约的多重签名
 
 使用uosio.misg合约合约同样达到多重签名的目的，但是多重签名合约只面向权限组成为账户的情况，手动多重签名则没有这个限制：  
 更改账户的额权限，便于测试：
@@ -425,7 +425,7 @@ Positionals:
  proposer TEXT               Account proposing the transaction
 ```
 
-## 2.5 共识主节点
+## 6.5 共识主节点
 
 共识主节点是UOS的出块节点和备用出块节点的统称，他们不仅仅提供UOS的出块以及验证，而且可以给其他ulord侧链提供共识服务，普通账户如果自己给自己抵押的cpu和net之和大于100000UOS,则可以申请成为活跃的出块用户，得票最多的前21位用户将有资格出块。将某个"活跃的出块用户"以及他在计算机上运行的UOS进程合称为一个共识主节点。  
 申请成为共识主节点：
@@ -490,7 +490,7 @@ id = 0代表当前奖励周期，id = 1代表下一次奖励周期，周期长�
 假如现在的时间戳在周期０内，那么bp发起一次领奖，能领取多少钱呢？  
 假设为领取时刻为ｔ,则奖池源发放的奖金为：
 
-> out\_all = \(t - laster\_line\_0\) _quantity\_0_ 10000 / \(dead\_line\_0 - laster\_line\_0\); \(2-5-1\)
+> out\_all = \(t - laster\_line\_0\) _quantity\_0_ 10000 / \(dead\_line\_0 - laster\_line\_0\); \(6-5-1\)
 
 奖金会分为两部分流入uosio.bpay与uosio.vpay。其中，0.8\*out\_all 进入uosio.bpay,0.2进入uosio.vpay。  
 查看系统合约global参数：
@@ -574,13 +574,13 @@ uoskkkkonebp的获得票数为1000000000.00000000000000000，未结算的生产�
 那么如果ｔ时刻\(t &gt; 1554259259000000 + 3600\)  
 uoskkkkonebp能领取出块的奖励为m,则:
 
-> m = \(out\_all\_0.8 + perblock\_bucket\)\_unpaid\_blocks / total\_unpaid\_blocks \(2-5-2\)
+> m = \(out\_all\_0.8 + perblock\_bucket\)\_unpaid\_blocks / total\_unpaid\_blocks \(6-5-2\)
 
 uoskkkkonebp能领取的投票奖励为n,则:
 
-> n= \(out\_all\_0.2 + pervote\_bucket\)\_total\_votes / total\_producer\_vote\_weight \(2-5-3\)
+> n= \(out\_all\_0.2 + pervote\_bucket\)\_total\_votes / total\_producer\_vote\_weight \(6-5-3\)
 >
 > 注：当n &gt;= 100 0000时，即投票奖励大于100UOS,n才有效,否则不会发放投票奖励
 
-uoskkkkonebp能够领取的总奖励为：m+n ,由\(2-1\)、\(2-2\)、\(2-3\)式可算出，注意最后得到的单位是“分”，要转化为"元",需要除以10000.
+uoskkkkonebp能够领取的总奖励为：m+n ,由\(6-5-1\)、\(6-5-2\)、\(6-5-3\)式可算出，注意最后得到的单位是“分”，要转化为"元",需要除以10000.
 

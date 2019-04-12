@@ -196,13 +196,13 @@ cluos  -u http://10.186.11.227:9008 create account uosio uosio.bpay  UOS8NaMwb1n
 
 ### create
 
-创建具有给定名称的新钱包。
-
-https://rpc1.uosio.org:8250/v1/wallet/create
-
-参数：
-
-    string类型
+> 创建具有给定名称的新钱包。
+>
+> URL：https://rpc1.uosio.org:8250/v1/wallet/create
+>
+> 参数：
+>
+>     string类型
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -214,13 +214,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/wallet/create --data '"
 
 ### open
 
-打开给定名称的现有钱包。
-
-https://rpc1.uosio.org:8250/v1/wallet/open
-
-参数：
-
-    string类型
+> 打开给定名称的现有钱包。
+>
+> URL：https://rpc1.uosio.org:8250/v1/wallet/open
+>
+> 参数：
+>
+>     string类型
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -232,13 +232,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/wallet/open --data '"de
 
 ### lock
 
-锁定给定名称的现有钱包。
-
-https://rpc1.uosio.org:8250/v1/wallet/lock
-
-参数：
-
-    string类型
+> 锁定给定名称的现有钱包。
+>
+> URL：https://rpc1.uosio.org:8250/v1/wallet/lock
+>
+> 参数：
+>
+>     string类型
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -250,13 +250,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/wallet/lock --data '"de
 
 ### lock\_all
 
-锁定所有现有钱包。
-
-https://rpc1.uosio.org:8250/v1/wallet/lock\_all
-
-参数：
-
-    无
+> 锁定所有现有钱包。
+>
+> URL：https://rpc1.uosio.org:8250/v1/wallet/lock\_all
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -268,15 +268,15 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/wallet/lock_all
 
 ### unlock
 
-使用给定的名称和密码解锁钱包。
-
-https://rpc1.uosio.org:8250/v1/wallet/unlock
-
-参数：
-
-    string类型，钱包名
-
-    string类型，钱包秘钥
+> 使用给定的名称和密码解锁钱包。
+>
+> URL：https://rpc1.uosio.org:8250/v1/wallet/unlock
+>
+> 参数：
+>
+>     string类型，钱包名
+>
+>     string类型，钱包秘钥
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -288,15 +288,15 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/wallet/unlock --data '[
 
 ### import\_key
 
-将私钥导入给定名称的钱包。
-
-https://rpc1.uosio.org:8250/v1/wallet/import\_key
-
-参数：
-
-    string类型，钱包名
-
-    string类型，私钥
+> 将私钥导入给定名称的钱包。
+>
+> URL：https://rpc1.uosio.org:8250/v1/wallet/import\_key
+>
+> 参数：
+>
+>     string类型，钱包名
+>
+>     string类型，私钥
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -308,13 +308,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/wallet/import_key --dat
 
 ### list\_wallets
 
-列出所有钱包。
-
-https://rpc1.uosio.org:8250/v1/wallet/list\_wallets 
-
-参数：
-
-    无
+> 列出所有钱包。
+>
+> URL：https://rpc1.uosio.org:8250/v1/wallet/list\_wallets 
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -326,13 +326,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/wallet/list_wallets
 
 ### get\_public\_keys
 
-列出所有钱包中的所有公钥。
-
-url：https://rpc1.uosio.org:8250/v1/wallet/get\_public\_keys
-
-参数：
-
-    无
+> 列出所有钱包中的所有公钥。
+>
+> URL：https://rpc1.uosio.org:8250/v1/wallet/get\_public\_keys
+>
+> 参数：
+>
+>     无
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -344,13 +344,13 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/wallet/get_public_keys
 
 ### set\_timeout
 
-设置钱包自动锁定超时（以秒为单位）。
-
-https://rpc1.uosio.org:8250/v1/wallet/set\_timeout
-
-参数：
-
-    int64类型
+> 设置钱包自动锁定超时（以秒为单位）。
+>
+> URL：https://rpc1.uosio.org:8250/v1/wallet/set\_timeout
+>
+> 参数：
+>
+>     int64类型
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
@@ -362,17 +362,17 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/wallet/set_timeout --da
 
 ### sign\_transaction
 
-签署事务。
-
-https://rpc1.uosio.org:8250/v1/wallet/sign\_transaction
-
-参数：
-
-    txn : string类型，事务
-
-    signatures : string类型，签名
-
-    id : string类型，链的ID
+> 签署事务。
+>
+> URL：https://rpc1.uosio.org:8250/v1/wallet/sign\_transaction
+>
+> 参数：
+>
+>     txn : string类型，事务
+>
+>     signatures : string类型，签名
+>
+>     id : string类型，链的ID
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}

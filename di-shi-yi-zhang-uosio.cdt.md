@@ -79,7 +79,7 @@ uosio-cpp version 1.5.0
 
 ## 合约编译示例
 
-合约编写参见第六章的hello.cpp 的编写。
+合约编写参见[第九章的helo.cpp](https://mastering-uos.gitbook.io/mastering-uos/di-jiu-zhang-he-yue-kai-fa-jiao-cheng#62-hello-he-yue) 的编写。
 
 编写完以后使用 uosio-cpp 进行编译。
 

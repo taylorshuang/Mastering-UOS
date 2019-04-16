@@ -60,6 +60,126 @@ UOS的账户默认有两个权限：owner和active。拥有对应权限的私钥
 active的后的第一个“１”是**权限阈值，公钥前面的“１”是该公钥的权重，要解锁某一权限，需要权限私钥对应的权重之和要能大于或等于权限阈值。关于权限更多介绍，可以跳转到**[**多重签名章节**](https://mastering-uos.gitbook.io/mastering-uos/di-er-zhang-ji-ben-gai-nian#24-duo-zhong-qian-ming)**。**  
 内存信息、cpu信息、net信息和投票信息将在以后的章节中介绍。
 
+### 6.1.2 权限修改
+
+UOS系统中，我们可以修改账户的权限组成，或增加新的权限。以baodaotulong账户为例，我们先查看该账户的权限：
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 get account "baodaotulong"
+created: 2019-03-29T08:46:56.000
+permissions:
+    owner     1:    1 UOS5A4sYXU6SA5kyKjbu76r9xapgrzotjhLEgPSZzDzMBJpw1559Y
+       active     1:    1 UOS5A4sYXU6SA5kyKjbu76r9xapgrzotjhLEgPSZzDzMBJpw1559Y
+......(省略)
+```
+
+#### 修改active权限
+
+需要active权限或owner权限。
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 set account permission baodaotulong active '{"threshold":1, "keys":[{"key":"UOS71LKEAFJqtgeX58G4iMx3k6aEYXQGiZmkC9pww2sgQpho89Wa1","weight":1}],"accounts":[]}' owner -p baodaotulong@owner
+```
+
+修改后查看账户权限组成：
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 get account "baodaotulong"
+created: 2019-03-29T08:46:56.000
+permissions:
+    owner     1:    1 UOS5A4sYXU6SA5kyKjbu76r9xapgrzotjhLEgPSZzDzMBJpw1559Y
+       active     1:    1 UOS71LKEAFJqtgeX58G4iMx3k6aEYXQGiZmkC9pww2sgQpho89Wa1
+......(省略)
+```
+
+#### 修改owner权限
+
+必须使用owner权限。
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 set account permission baodaotulong owner '{"threshold":2, "keys":[{"key":"UOS71LKEAFJqtgeX58G4iMx3k6aEYXQGiZmkC9pww2sgQpho89Wa1","weight":2}],"accounts":[]}' -p baodaotulong@owner
+```
+
+修改后查看账户权限组成：
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 get account "baodaotulong"
+created: 2019-03-29T08:46:56.000
+permissions:
+    owner     2:    2 UOS71LKEAFJqtgeX58G4iMx3k6aEYXQGiZmkC9pww2sgQpho89Wa1
+       active     1:    1 UOS71LKEAFJqtgeX58G4iMx3k6aEYXQGiZmkC9pww2sgQpho89Wa1
+......(省略)
+```
+
+**注意**：以上命令也可以修改权限的权重和阈值；修改owner权限时，我们就修改了该权限的权重及阈值。
+
+**创建或修改其他权限**
+
+除了两个原生权限以外，UOS还支持自定义权限。我们新增一个voting权限，该权限是active的子权限。且该权限由 UOS5BmFG8H42XvKGN1Lfq94iDgwHoQCgtCPCqvoeN6ibqCHhi7XX9 对应的私钥和testaccountx的active权限共同控制。
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 set account permission baodaotulong voting '{"threshold":2,"keys":[{"key":"UOS71LKEAFJqtgeX58G4iMx3k6aEYXQGiZmkC9pww2sgQpho89Wa1","weight":1}],"accounts":[{"permission":{"actor":"testaccountx","permission":"active"},"weight":1}],"permissions":[{"perm_name":"voting","parent":"active"}]}' -p baodaotulong@active
+```
+
+修改后查看账户权限组成：
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 get account "baodaotulong"
+created: 2019-03-29T08:46:56.000
+permissions:
+    owner     2:    2 UOS71LKEAFJqtgeX58G4iMx3k6aEYXQGiZmkC9pww2sgQpho89Wa1
+       active     1:    1 UOS71LKEAFJqtgeX58G4iMx3k6aEYXQGiZmkC9pww2sgQpho89Wa1
+          voting     2:    1 UOS71LKEAFJqtgeX58G4iMx3k6aEYXQGiZmkC9pww2sgQpho89Wa1, 1 testaccountx@active
+......(省略)
+```
+
+**注意**：新增voting权限后，并**不能**直接使用该权限进行**任何**操作，我们还需要给该权限绑定action。
+
+#### 绑定action
+
+这里，我们绑定uosio合约的voteproducer这个action。
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 set action permission baodaotulong uosio voteproducer voting
+```
+
+当然我们也可以给voting权限绑定多个action，如转账。
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 set action permission baodaotulong uosio.token transfer voting
+```
+
+#### 解除绑定
+
+移除权限之前，我们需要解绑该权限绑定的**所有**action，否则无法移除。
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 set action permission baodaotulong uosio voteproducer NULL
+```
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 set action permission baodaotulong uosio.token transfer NULL
+```
+
+#### 移除权限
+
+既然可以新增权限，当然也可以移除权限。
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 set account permission baodaotulong voting 'NULL' -p baodaotulong@active
+```
+
+修改后查看账户权限组成：
+
+```text
+cluos --url http://rpc.uos.iccob.com:9008 get account "baodaotulong"
+created: 2019-03-29T08:46:56.000
+permissions:
+    owner     2:    2 UOS71LKEAFJqtgeX58G4iMx3k6aEYXQGiZmkC9pww2sgQpho89Wa1
+       active     1:    1 UOS71LKEAFJqtgeX58G4iMx3k6aEYXQGiZmkC9pww2sgQpho89Wa1
+......(省略)
+```
+
 ## 6.2 交易
 
 UOS中，任何一个操作最后均归结为合约的调用，**交易实际是由用户授权的一个或多个合约调用的组合。**

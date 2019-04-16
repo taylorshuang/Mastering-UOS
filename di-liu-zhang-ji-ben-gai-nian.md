@@ -490,7 +490,7 @@ id = 0代表当前奖励周期，id = 1代表下一次奖励周期，周期长�
 假如现在的时间戳在周期０内，那么bp发起一次领奖，能领取多少钱呢？  
 假设为领取时刻为ｔ,则奖池源发放的奖金为：
 
-> out\_all = \(t - laster\_line\_0\) _quantity\_0_ 10000 / \(dead\_line\_0 - laster\_line\_0\); \(6-5-1\)
+> out\_all = \(t - laster\_line\_0\) _quantity\* 10000 / \(dead\_line\_0 - laster\_line\_0\); \(6-5-1\)
 
 奖金会分为两部分流入uosio.bpay与uosio.vpay。其中，0.8\*out\_all 进入uosio.bpay,0.2进入uosio.vpay。  
 查看系统合约global参数：
@@ -574,11 +574,11 @@ uoskkkkonebp的获得票数为1000000000.00000000000000000，未结算的生产�
 那么如果ｔ时刻\(t &gt; 1554259259000000 + 3600\)  
 uoskkkkonebp能领取出块的奖励为m,则:
 
-> m = \(out\_all\_0.8 + perblock\_bucket\)\_unpaid\_blocks / total\_unpaid\_blocks \(6-5-2\)
+> m = \(out\_all\_0.8 + perblock\_bucket\)\*_unpaid\_blocks / total\_unpaid\_blocks \(6-5-2\)
 
 uoskkkkonebp能领取的投票奖励为n,则:
 
-> n= \(out\_all\_0.2 + pervote\_bucket\)\_total\_votes / total\_producer\_vote\_weight \(6-5-3\)
+> n= \(out\_all\_0.2 + pervote\_bucket\)\*_total\_votes / total\_producer\_vote\_weight \(6-5-3\)
 >
 > 注：当n &gt;= 100 0000时，即投票奖励大于100UOS,n才有效,否则不会发放投票奖励
 

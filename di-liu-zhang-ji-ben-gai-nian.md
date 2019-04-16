@@ -574,11 +574,11 @@ uoskkkkonebp的获得票数为1000000000.00000000000000000，未结算的生产�
 那么如果ｔ时刻\(t &gt; 1554259259000000 + 3600\)  
 uoskkkkonebp能领取出块的奖励为m,则:
 
-> m = \(out\_all\_0.8 + perblock\_bucket\)\*_unpaid\_blocks / total\_unpaid\_blocks \(6-5-2\)
+> m = \(out\_all\*0.8 + perblock\_bucket\)\*unpaid\_blocks / total\_unpaid\_blocks \(6-5-2\)
 
 uoskkkkonebp能领取的投票奖励为n,则:
 
-> n= \(out\_all\_0.2 + pervote\_bucket\)\*_total\_votes / total\_producer\_vote\_weight \(6-5-3\)
+> n= \(out\_all\*0.2 + pervote\_bucket\)\*total\_votes / total\_producer\_vote\_weight \(6-5-3\)
 >
 > 注：当n &gt;= 100 0000时，即投票奖励大于100UOS,n才有效,否则不会发放投票奖励
 

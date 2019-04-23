@@ -22,21 +22,21 @@ DApp是Decentralized Application的缩写，译为:分散式的应用程序。Ap
 
 1.  创建账户
 
-   使用rpc命令cluos system newaccount。
+   使用rpc命令[cluos system newaccount](https://mastering-uos.gitbook.io/mastering-uos/di-wu-zhang-cluos#12-1-system-newaccount)。
 
 2.  开发、编译合约
 
-   使用合约编译工具uosio.cdt进行编译
+   使用合约编译工具[uosio.cdt](https://mastering-uos.gitbook.io/mastering-uos/di-shi-yi-zhang-uosio.cdt)进行编译
 
 3.  部署、调试合约
 
-   使用rpc命令cluos set contract 部署合约。
+   使用rpc命令[cluos set contract](https://mastering-uos.gitbook.io/mastering-uos/di-wu-zhang-cluos#5-3-set-contract) 部署合约。
 
    由于没有专用的调试工具，一般使用print函数打印信息进行调试。
 
 4.  DApp前后端开发
 
-   需要使用相关的api及uosjs相关库文件。
+   需要使用相关的[api](https://mastering-uos.gitbook.io/mastering-uos/di-si-zhang-noduos#noduos-chang-yong-api)及[uosjs](https://mastering-uos.gitbook.io/mastering-uos/di-shi-er-zhang-uosjs-zan-wu)相关库文件。
 
 5.  合约及前后端联调
 

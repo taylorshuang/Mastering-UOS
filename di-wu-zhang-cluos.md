@@ -102,7 +102,7 @@ Options:
 
 uosio.code权限：
 
-在编写合约时，您可能要求您的合约能够广播内联action。要使您的合约具备此能力，您需要使用合约的active权限。但是，出于安全目的，合约不能与其主动权限签署，除非合约的帐户已配置为执行此操作。uosio.code是授予合约active权限的伪权威。以前，需要一个复杂且具有潜在风险的cluos命令来添加YOURCONTRACT@uosio.code到active权限，使用uosio.code帮助程序可以大大简化这一点。
+在编写合约时，您可能要求您的合约能够广播内联action。要使您的合约具备此能力，您需要使用合约的active权限。但是，出于安全目的，合约不能主动使用active权限签署交易，除非合约的帐户已配置为执行此操作。uosio.code是授予合约active权限的伪权限。以前，需要一个复杂且具有潜在风险的cluos命令来添加YOURCONTRACT@uosio.code到active权限，使用uosio.code帮助程序可以大大简化这一点。
 
 将uosio.code添加到合约的active权限中
 

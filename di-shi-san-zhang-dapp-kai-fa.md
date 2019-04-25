@@ -549,7 +549,7 @@ function click_bet(){
         var memostr = "oneshot;" + invitor + ";" + celling;
         console.log("memostr",memostr)
         console.log("转账",`"from":${account.name},"to":${DICE_SERVANT}, "quantity":${(bet + " UOS")}, "memo":${memostr}`)
-        /* cluos push action uosio.token transfer '{"from":"player","to":"dice","quantity":"10.0000 UOS","memo":"onshot;;50"}' -p player */
+        /* cluos push action uosio.token transfer '{"from":"player","to":"dice","quantity":"10.0000 UOS","memo":"oneshot;;50"}' -p player */
         contract.transfer(account.name, DICE_SERVANT, bet + " UOS", memostr).then(trx => {
             console.log(`Transaction ID: ${trx.transaction_id}`);
             notify_message("操作成功！")

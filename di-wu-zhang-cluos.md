@@ -109,34 +109,12 @@ uosio.code权限：
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
 ```bash
-cluos set account permission YOURCONTRACT active --add-code
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-从合约的活动权限中删除uosio.code
-
-{% code-tabs %}
-{% code-tabs-item title="shell" %}
-```bash
-cluos set account permission YOURCONTRACT active --remove-code
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
---add-code和--remove-code在后台做了什么？
-
-使用--add-code和--remove-code时，cluos获取帐户的当前权限，并对active权限附加或移除YOURCONTRACT@uosio.code权限。建议使用--add-code选项，而不是以下命令，因为很容易出错，可能导致帐户被锁定。
-
-{% code-tabs %}
-{% code-tabs-item title="shell" %}
-```bash
 cluos set account permission YOUR_CONTRACT active '{"threshold": 1,"keys": [{"key": "CURRENT_PUBLIC_KEY(S)_IN_ACTIVE_PERM","weight": 1}], "accounts": [{"permission":{"actor":"YOUR_CONTRACT","permission":"uosio.code"},"weight":1}]}' -p YOUR_CONTRACT@owner
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-当然，其他账户也可以附加或移除本合约的uosio.code权限，这种情况下则不能使用--add-code或--remove-code选项。
+当然，其他账户也可以附加或移除本合约的uosio.code权限。
 
 {% code-tabs %}
 {% code-tabs-item title="shell" %}

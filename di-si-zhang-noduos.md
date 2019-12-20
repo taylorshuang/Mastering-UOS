@@ -321,7 +321,7 @@ curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/get_producers --d
 {% code-tabs %}
 {% code-tabs-item title="shell" %}
 ```bash
-curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/get_required_keys --data '{"transaction":{"ref_block_num":"8280640","ref_block_prefix": "2197313158","expiration": "2019-04-09T09:06:43.500","actions":[{"account":"uosio","name":"delegatebw","authorization": [{"actor":"testaccount1","permission":"active"}],"data": "10f2d4142193b1ca10f2d4142193b1ca102700000000000004535953000000001027000000000000045359530000000000"}],"signatures": [],"authorizations": []},"available_keys":["EOS72shafjy5hHqaESGRCA7XQRtdkz2aos58wqKJZ7S4uqVc1VvQ7","EOS8TnAwmHfdZvWYgbCBGYmLscwASkba9fALELpQSugqh9HUfHHkP","EOS5PVr4cGoXfaciZLpWLie4ozdy8fnoHVT57Ea3XxjpebZ9DLVyJ"]}'
+curl --request POST --url https://rpc1.uosio.org:8250/v1/chain/get_required_keys --data '{"transaction":{"ref_block_num":"8280640","ref_block_prefix": "2197313158","expiration": "2019-04-09T09:06:43.500","actions":[{"account":"uosio","name":"delegatebw","authorization": [{"actor":"testaccount1","permission":"active"}],"data": "10f2d4142193b1ca10f2d4142193b1ca102700000000000004535953000000001027000000000000045359530000000000"}],"signatures": [],"authorizations": []},"available_keys":["UOS72shafjy5hHqaESGRCA7XQRtdkz2aos58wqKJZ7S4uqVc1VvQ7","UOS8TnAwmHfdZvWYgbCBGYmLscwASkba9fALELpQSugqh9HUfHHkP","UOS5PVr4cGoXfaciZLpWLie4ozdy8fnoHVT57Ea3XxjpebZ9DLVyJ"]}'
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
